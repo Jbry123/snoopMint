@@ -101,6 +101,7 @@ section {
   display: block;
 }
 body {
+  overflow-x: clip;
   line-height: 1;
 }
 ol,
@@ -127,6 +128,8 @@ table {
   font-family: "Fira Sans";
   src: local("coder"), url(font.woff) format("woff");
 }
+
+
 
 body {
   margin: 0;
@@ -181,4 +184,31 @@ div {
     align-items: center;
     justify-content: center;
     align-content: center;
+}
+
+@media only screen and (max-width: 800px) {
+  #header, #headerRight {
+    flex-direction: column;
+  }
+  #header{
+    height: 375px !important;
+    margin-bottom: 25px;
+    justify-content: center !important;
+  }
+  #snoopIllustration {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+  #texturedCard {
+    min-width: 375px !important;
+  }
+  #randomMintP {
+    margin: 0 !important;
+  }
+  #headerRight a button {
+    margin: 0 !important;
+  }
+  #tokeArea {
+    width: 95vw !important;
+  }
 }

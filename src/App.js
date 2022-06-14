@@ -10,6 +10,7 @@ import backgroundmb from "./mbLitty.png";
 import mbWhite from "./mbWhite.png";
 import texturedCard from "./texturedCard.png";
 import buttonBG from "./buttonBG.png";
+import tokeArea from "./tokeArea.png";
 
 const truncate = (input, len) =>
   input.length > len ? `${input.substring(0, len)}...` : input;
@@ -277,7 +278,7 @@ function App() {
   }, [blockchain.account]);
 
   return (
-    <s.Screen style={{background: backgroundmb, backgroundPosition: "top"}}>
+    <s.Screen style={{background: backgroundmb, backgroundPosition: "top", overflowX: "clip"}}>
       <s.Container
         flex={1}
         ai={"left"}
@@ -290,11 +291,11 @@ function App() {
           display: "flex"
         }}
       >
-        <div style={styles.header}>
+        <div id="header" style={styles.header}>
           <a href="https://app.dreamstarter.co"><img style={{ margin: "15px 25px", width: "135px", height: "auto" }} src={mbWhite}>
           </img></a>
 
-          <div style={styles.headerRight}>
+          <div id="headerRight" style={styles.headerRight}>
 
 
             <a href="https://dreamr.gitbook.io/welcome-to-dreamr/technology/dreamstarter-nft-launchpad"><button
@@ -371,12 +372,12 @@ function App() {
       >
 
         <a href={CONFIG.MARKETPLACE_LINK}>
-          <SnoopIllustration style={{height: "77vh", width: "auto", margin: "0px 110px"}} />
+          <SnoopIllustration id="snoopIllustration" style={{height: "77vh", width: "auto", margin: "0px 110px"}} />
         </a>
         <div id="buySection">
         <ResponsiveWrapper flex={2}
-            id="texturedCard" style={{ padding: 24, width: "62%", minWidth: "470px" }}>
-          <s.SpacerLarge />
+            id="texturedCard" style={{ padding: 24, width: "62%", minWidth: "420px" }}>
+       
           <s.Container
             flex={2}
             jc={"center"}
@@ -408,11 +409,10 @@ function App() {
                 <h1 style={{fontSize: "50px",}}>Ξ 0.064</h1>
                 </div>
                 
-              </div><p style={{fontSize: "18px", marginTop: "25px"}}>Random mint assignment.</p>
+              </div><p id="randomMintP" style={{fontSize: "18px", marginTop: "25px"}}>Random mint assignment.</p>
             </s.TextTitle>
             
       
-            <s.SpacerSmall />
             {Number(data.totalSupply) >= CONFIG.MAX_SUPPLY ? (
               <>
                 <s.TextTitle
@@ -437,11 +437,9 @@ function App() {
             )}
             
           </s.Container>
-          <s.SpacerLarge />
           
         </ResponsiveWrapper>
         
-        <s.SpacerMedium />
         <>
                     <s.TextDescription
                       style={{
@@ -522,6 +520,18 @@ function App() {
           </s.TextDescription>
         </s.Container> */}
       </s.Container>
+
+      <s.Container
+        flex={1}
+        ai={"center"}
+        style={{ padding: "50px 25px", backgroundColor: "transparent", display: "flex", flexDirection: "row", justifyContent: "center", alignContent: "center", alignItems: "center", flexWrap: "wrap", }}
+        image={CONFIG.SHOW_BACKGROUND ? "https://rdbcarclub.com/wp-content/uploads/2021/11/new1-1.png" : null}
+      >
+        <img id="tokeArea" src={tokeArea}>
+        </img>
+
+      </s.Container>
+
     </s.Screen>
   );
 }
