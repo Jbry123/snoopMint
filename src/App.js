@@ -1,26 +1,105 @@
 import React, { useEffect, useState, useRef } from "react";
+import {ReactComponent as SnoopIllustration} from './snoopIllustration.svg';
 import { useDispatch, useSelector } from "react-redux";
 import { connect } from "./redux/blockchain/blockchainActions";
 import { fetchData } from "./redux/data/dataActions";
 import * as s from "./styles/globalStyles";
 import styled from "styled-components";
+import { read, readdir } from "fs";
+import backgroundmb from "./mbLitty.png";
+import mbWhite from "./mbWhite.png";
+import texturedCard from "./texturedCard.png";
+import buttonBG from "./buttonBG.png";
 
 const truncate = (input, len) =>
   input.length > len ? `${input.substring(0, len)}...` : input;
 
+  const styles = {
+    headerText: {
+      fontSize: "40px",
+      fontFamily: "Roboto !important",
+      fontWeight: "700",
+      color: "#f2f2f2",
+      height: "95px",
+      width: "100%",
+      padding: "0px 30px"
+    },
+  
+    headerText2: {
+      marginTop: "75px",
+      fontSize: "40px",
+      fontFamily: "Roboto !important",
+      fontWeight: "500",
+      color: "#f2f2f2",
+      height: "95px",
+      width: "100%",
+      padding: "0px 30px",
+      textAlign: "center"
+    },
+  
+    tabs: {
+      fontSize: "38px",
+      fontFamily: "Roboto !important",
+      fontWeight: "500",
+      color: "#f2f2f2",
+      height: "auto",
+      width: "100%",
+      padding: "0px 30px"
+    },
+  
+    pText: {
+  
+      fontFamily: "Roboto !important",
+      fontSize: "15.5px",
+      color: "#b1b1b1",
+      height: "160px",
+      width: "100%",
+      padding: "0px 30px",
+      overflow: "overlay"
+    },
+  
+    content: {
+      display: "flex",
+      justifyContent: "center",
+      fontFamily: "Roboto, sans-serif",
+      color: "#041836",
+      padding: "10px",
+    },
+    header: {
+      position: "relative",
+      zIndex: 1,
+      height: "175px",
+      width: "100%",
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      fontFamily: "Roboto, sans-serif",
+      padding: "0 50px",
+      background: "transparent",
+    },
+    headerRight: {
+      display: "flex",
+      gap: "20px",
+      alignItems: "center",
+      fontSize: "15px",
+      fontWeight: "600",
+    },
+  
+  
+  
+  };
+
 export const StyledButton = styled.button`
   padding: 10px;
-  border-radius: 50px;
+  border-radius: 5px;
   border: none;
-  background-color: #F3164A;
+  background-color: #EB5A48;
   padding: 10px;
   font-weight: bold;
   color: var(--secondary-text);
-  width: 100px;
+  width: 160px;
   cursor: pointer;
-  box-shadow: 0px 6px 0px -2px rgba(250, 250, 250, 0.3);
-  -webkit-box-shadow: 0px 6px 0px -2px rgba(250, 250, 250, 0.3);
-  -moz-box-shadow: 0px 6px 0px -2px rgba(250, 250, 250, 0.3);
+  box-shadow: inset 0px 0px 0 2px #fe984c, 0px 0px 0 2px #5d3b94;
   :active {
     box-shadow: none;
     -webkit-box-shadow: none;
@@ -32,20 +111,19 @@ export const StyledRoundButton = styled.button`
   padding: 10px;
   border-radius: 100%;
   border: none;
-  background-color: #F3164A;
+  background-image: url(${buttonBG});
+  background-color: transparent;
+  background-size: contain;
   padding: 10px;
   font-weight: bold;
   font-size: 15px;
   color: var(--primary-text);
-  width: 30px;
-  height: 30px;
+  width: 76px;
+  height: 73px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0px 4px 0px -2px rgba(250, 250, 250, 0.3);
-  -webkit-box-shadow: 0px 4px 0px -2px rgba(250, 250, 250, 0.3);
-  -moz-box-shadow: 0px 4px 0px -2px rgba(250, 250, 250, 0.3);
   :active {
     box-shadow: none;
     -webkit-box-shadow: none;
@@ -97,7 +175,7 @@ function App() {
   const blockchain = useSelector((state) => state.blockchain);
   const data = useSelector((state) => state.data);
   const [claimingNft, setClaimingNft] = useState(false);
-  const [feedback, setFeedback] = useState(`Click buy to mint your NFT.`);
+  const [feedback, setFeedback] = useState(``);
   const [mintAmount, setMintAmount] = useState(1);
   const [CONFIG, SET_CONFIG] = useState({
     CONTRACT_ADDRESS: "0x20bcde673cc3e77d843d100ea14e3760f64e1e11",
@@ -107,9 +185,9 @@ function App() {
       SYMBOL: "ETH",
       ID: 1,
     },
-    NFT_NAME: "RDB Car Club",
-    SYMBOL: "RDBCC",
-    MAX_SUPPLY: 5000,
+    NFT_NAME: "MonsterBuds X Litty Up",
+    SYMBOL: "MBLU",
+    MAX_SUPPLY: 420,
     WEI_COST: 150000000000000000,
     DISPLAY_COST: 0.15,
     GAS_LIMIT: 120000,
@@ -199,79 +277,141 @@ function App() {
   }, [blockchain.account]);
 
   return (
-    <s.Screen>
+    <s.Screen style={{background: backgroundmb, backgroundPosition: "top"}}>
+      <s.Container
+        flex={1}
+        ai={"left"}
+        jc={"left"}
+        style={{
+          width: "100%",
+          height: "145px",
+          background: "transparent",
+          justifyContent: "left",
+          display: "flex"
+        }}
+      >
+        <div style={styles.header}>
+          <a href="https://app.dreamstarter.co"><img style={{ margin: "15px 25px", width: "135px", height: "auto" }} src={mbWhite}>
+          </img></a>
+
+          <div style={styles.headerRight}>
+
+
+            <a href="https://dreamr.gitbook.io/welcome-to-dreamr/technology/dreamstarter-nft-launchpad"><button
+
+              style={{
+                width: "240px",
+                height: "40px",
+                fontSize: "17px",
+                border: "none",
+                padding: "5px",
+                color: "#f2f2f2",
+                background: "transparent",
+                marginRight: "25px",
+                cursor: "pointer",
+              }}
+            >
+              Market Place
+            </button></a>
+
+
+
+            <a href="https://quickswap.exchange/#/swap?inputCurrency=0x955ce23f20217a6aa205620b40ede4c9e83d325f"><button
+
+              style={{
+                width: "150px",
+                height: "40px",
+                border: "none",
+                fontSize: "17px",
+                padding: "5px",
+                color: "#f2f2f2",
+                background: "transparent",
+                marginRight: "25px",
+                cursor: "pointer",
+              }}
+            >
+              WTF ARE BUDS?
+            </button></a>
+
+            <a href="https://quickswap.exchange/#/swap?inputCurrency=0x955ce23f20217a6aa205620b40ede4c9e83d325f"><button
+
+              style={{
+                width: "150px",
+                height: "40px",
+                border: "none",
+                fontSize: "17px",
+                padding: "5px",
+                color: "#f2f2f2",
+                background: "transparent",
+                marginRight: "25px",
+                cursor: "pointer",
+              }}
+            >
+              Get Started
+            </button></a>
+
+            <StyledButton
+                      onClick={(e) => {
+                        e.preventDefault();
+                        dispatch(connect());
+                        getData();
+                      }}
+                    >
+                      CONNECT WALLET
+                    </StyledButton>
+          </div>
+        </div>
+
+      </s.Container>
       <s.Container
         flex={1}
         ai={"center"}
-        style={{ padding: 24, backgroundColor: "#020202" }}
+        style={{ padding: "0px 24px", backgroundColor: "transparent", display: "flex", flexDirection: "row", justifyContent: "center", alignContent: "center", alignItems: "center", flexWrap: "wrap", }}
         image={CONFIG.SHOW_BACKGROUND ? "https://rdbcarclub.com/wp-content/uploads/2021/11/new1-1.png" : null}
       >
+
         <a href={CONFIG.MARKETPLACE_LINK}>
-          <StyledLogo style={{borderRadius: "25px"}} alt={"logo"} src={"https://rdbcarclub.com/wp-content/uploads/2021/11/cropped-IMG_1282.jpg"} />
+          <SnoopIllustration style={{height: "77vh", width: "auto", margin: "0px 110px"}} />
         </a>
-        <s.SpacerSmall />
-        <ResponsiveWrapper flex={1} style={{ padding: 24, width: "50%", minWidth: "360px" }} test>
+        <div id="buySection">
+        <ResponsiveWrapper flex={2}
+            id="texturedCard" style={{ padding: 24, width: "62%", minWidth: "470px" }}>
           <s.SpacerLarge />
           <s.Container
             flex={2}
             jc={"center"}
             ai={"center"}
             style={{
-              backgroundColor: "rgba(80, 80, 80, 0.85)",
               width: "100%",
-              padding: 24,
-              borderRadius: 24,
-              border: "4px solid #020202",
-              boxShadow: "0px 5px 11px 2px rgba(0,0,0,0.7)",
             }}
           >
             <s.TextTitle
               style={{
                 textAlign: "center",
-                fontSize: 50,
+                fontSize: 28,
                 fontWeight: "bold",
-                color: "#F3164A",
+                fontFamily: "Fira Sans",
+                color: "#5D3B94",
               }}
             >
-              <span style={{color: "white", fontSize: "15px", lineHeight: "1"}}>*mint data not accurate until wallet is connected, we're at over 1400*</span> <br />
-              {data.totalSupply} / {CONFIG.MAX_SUPPLY}
+              <b>MONSTERBUDS X LITTY UP </b>
+              <br />
+              <div style={{display: "flex", flexWrap: "nowrap", justifyContent: "space-around", alignItems: "center", alignContent: "center" }}>
+
+                <div style={{display: "flex", justifyContent: "center", flexDirection: "column"}}>
+                <h3 style={{fontSize: "28px",}}>Drop Size</h3>
+                <h1 style={{fontSize: "50px",}}>{CONFIG.MAX_SUPPLY}</h1>
+                </div>
+
+                <div style={{display: "flex", justifyContent: "center", flexDirection: "column"}}>
+                <h3 style={{fontSize: "28px",}}>Mint Price</h3>
+                <h1 style={{fontSize: "50px",}}>Ξ 0.064</h1>
+                </div>
+                
+              </div><p style={{fontSize: "18px", marginTop: "25px"}}>Random mint assignment.</p>
             </s.TextTitle>
-            <s.TextDescription
-              style={{
-                textAlign: "center",
-                color: "#F3164A",
-              }}
-            >
-              <StyledLink target={"_blank"} href={CONFIG.SCAN_LINK}>
-                {truncate(CONFIG.CONTRACT_ADDRESS, 15)}
-              </StyledLink>
-            </s.TextDescription>
-            <span
-              style={{
-                textAlign: "center",
-              }}
-            >
-              <StyledButton
-                onClick={(e) => {
-                  window.open("https://rdbcarclub.com", "_blank");
-                }}
-                style={{
-                  margin: "5px",
-                }}
-              >
-                Roadmap
-              </StyledButton>
-              <StyledButton
-                style={{
-                  margin: "5px",
-                }}
-                onClick={(e) => {
-                  window.open(CONFIG.MARKETPLACE_LINK, "_blank");
-                }}
-              >
-                {CONFIG.MARKETPLACE}
-              </StyledButton>
-            </span>
+            
+      
             <s.SpacerSmall />
             {Number(data.totalSupply) >= CONFIG.MAX_SUPPLY ? (
               <>
@@ -292,56 +432,17 @@ function App() {
               </>
             ) : (
               <>
-                <s.TextTitle
-                  style={{ textAlign: "center", color: "var(--accent-text)" }}
-                >
-                  1 {CONFIG.SYMBOL} costs {CONFIG.DISPLAY_COST}{" "}
-                  {CONFIG.NETWORK.SYMBOL}.
-                </s.TextTitle>
-                <s.SpacerXSmall />
-                <s.TextDescription
-                  style={{ textAlign: "center", color: "var(--accent-text)" }}
-                >
-                  Excluding gas fees.
-                </s.TextDescription>
-                <s.SpacerSmall />
-                {blockchain.account === "" ||
-                blockchain.smartContract === null ? (
-                  <s.Container ai={"center"} jc={"center"}>
-                    <s.TextDescription
-                      style={{
-                        textAlign: "center",
-                        color: "var(--accent-text)",
-                      }}
-                    >
-                      Connect to the {CONFIG.NETWORK.NAME} network
-                    </s.TextDescription>
-                    <s.SpacerSmall />
-                    <StyledButton
-                      onClick={(e) => {
-                        e.preventDefault();
-                        dispatch(connect());
-                        getData();
-                      }}
-                    >
-                      CONNECT
-                    </StyledButton>
-                    {blockchain.errorMsg !== "" ? (
-                      <>
-                        <s.SpacerSmall />
-                        <s.TextDescription
-                          style={{
-                            textAlign: "center",
-                            color: "var(--accent-text)",
-                          }}
-                        >
-                          {blockchain.errorMsg}
-                        </s.TextDescription>
-                      </>
-                    ) : null}
-                  </s.Container>
-                ) : (
-                  <>
+                
+              </>
+            )}
+            
+          </s.Container>
+          <s.SpacerLarge />
+          
+        </ResponsiveWrapper>
+        
+        <s.SpacerMedium />
+        <>
                     <s.TextDescription
                       style={{
                         textAlign: "center",
@@ -396,15 +497,8 @@ function App() {
                       </StyledButton>
                     </s.Container>
                   </>
-                )}
-              </>
-            )}
-            <s.SpacerMedium />
-          </s.Container>
-          <s.SpacerLarge />
-        </ResponsiveWrapper>
-        <s.SpacerMedium />
-        <s.Container jc={"center"} ai={"center"} style={{ width: "70%" }}>
+                  </div>
+        {/* <s.Container jc={"center"} ai={"center"} style={{ width: "70%" }}>
           <s.TextDescription
             style={{
               textAlign: "center",
@@ -426,7 +520,7 @@ function App() {
             successfully mint your NFT. We recommend that you don't lower the
             gas limit.
           </s.TextDescription>
-        </s.Container>
+        </s.Container> */}
       </s.Container>
     </s.Screen>
   );

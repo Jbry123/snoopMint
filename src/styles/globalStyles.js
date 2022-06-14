@@ -1,9 +1,10 @@
 import styled from "styled-components";
+import backgroundmb from "../mbLitty.png";
+
 
 // Used for wrapping a page component
 export const Screen = styled.div`
-  background-color: var(--primary);
-  background-image: ${({ image }) => (image ? `url(${image})` : "none")};
+  background-image: url(${backgroundmb});
   background-size: cover;
   background-position: center;
   width: 100%;
@@ -45,7 +46,7 @@ export const Container = styled.div`
   align-items: ${({ ai }) => (ai ? ai : "flex-start")};
   background-color: ${({ test }) => (test ? "pink" : "none")};
   width: 100%;
-  background-image: ${({ image }) => (image ? `url(${image})` : "none")};
+  background-image: url(./mbLitty.png);
   background-size: cover;
   background-position: center;
 `;

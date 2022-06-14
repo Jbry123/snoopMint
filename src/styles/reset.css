@@ -124,7 +124,7 @@ table {
 }
 
 @font-face {
-  font-family: "coder";
+  font-family: "Fira Sans";
   src: local("coder"), url(font.woff) format("woff");
 }
 
@@ -166,4 +166,19 @@ div {
   -ms-user-select: none;
   user-select: none;
   -o-user-select: none;
+}
+
+#texturedCard {
+  background-image: url(../texturedCard.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+#buySection {
+  display: grid;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
 }
