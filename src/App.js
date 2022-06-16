@@ -73,7 +73,7 @@ const styles = {
   header: {
     position: "relative",
     zIndex: 1,
-    height: "175px",
+    height: "145px",
     width: "100%",
     display: "flex",
     justifyContent: "space-between",
@@ -227,7 +227,7 @@ function App() {
       })
       .once("error", (err) => {
         console.log(err);
-        setFeedback("Sorry, something went wrong please try again later.");
+        setFeedback("Sorry bud, stuff went wrong! Maybe a rejected transaction or a contract error, try again please!");
         setClaimingNft(false);
       })
       .then((receipt) => {
@@ -289,7 +289,7 @@ function App() {
         jc={"left"}
         style={{
           width: "100%",
-          height: "145px",
+          height: "125px",
           background: "transparent",
           justifyContent: "left",
           display: "flex"
@@ -305,14 +305,14 @@ function App() {
             <a href="https://dreamr.gitbook.io/welcome-to-dreamr/technology/dreamstarter-nft-launchpad"><button
 
               style={{
-                width: "240px",
+                width: "15vw",
                 height: "40px",
                 fontSize: "17px",
                 border: "none",
                 padding: "5px",
                 color: "#f2f2f2",
                 background: "transparent",
-                marginRight: "25px",
+                marginRight: "5px",
                 cursor: "pointer",
               }}
             >
@@ -324,7 +324,7 @@ function App() {
             <a href="https://quickswap.exchange/#/swap?inputCurrency=0x955ce23f20217a6aa205620b40ede4c9e83d325f"><button
 
               style={{
-                width: "150px",
+                width: "15vw",
                 height: "40px",
                 border: "none",
                 fontSize: "17px",
@@ -341,31 +341,34 @@ function App() {
             <a href="https://quickswap.exchange/#/swap?inputCurrency=0x955ce23f20217a6aa205620b40ede4c9e83d325f"><button
 
               style={{
-                width: "150px",
+                width: "15vw",
                 height: "40px",
                 border: "none",
                 fontSize: "17px",
                 padding: "5px",
                 color: "#f2f2f2",
                 background: "transparent",
-                marginRight: "25px",
+                marginRight: "5px",
                 cursor: "pointer",
               }}
             >
               Get Started
             </button></a>
             {blockchain.account === "" ||
-                  blockchain.smartContract === null ? (
-            <StyledButton
-              onClick={(e) => {
-                e.preventDefault();
-                dispatch(connect());
-                getData();
-              }}
-            >
-              CONNECT WALLET
-            </StyledButton>
-                  ) : (<h1 style={{background: "#fff", padding: "10px", borderRadius: "9px"}}>{truncate(blockchain.account, 10)}</h1>)}
+              blockchain.smartContract === null ? (
+              <div style={{ width: "29vw" }}>
+                <StyledButton
+                  style={{}}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    dispatch(connect());
+                    getData();
+                  }}
+                >
+                  CONNECT WALLET
+                </StyledButton>
+              </div>
+            ) : (<h1 style={{ background: "#fff", padding: "10px", borderRadius: "9px" }}>{truncate(blockchain.account, 10)}</h1>)}
           </div>
         </div>
 
@@ -378,11 +381,11 @@ function App() {
       >
 
         <a href={CONFIG.MARKETPLACE_LINK}>
-          <SnoopIllustration id="snoopIllustration" style={{ height: "77vh", width: "auto", margin: "0px 110px" }} />
+          <SnoopIllustration id="snoopIllustration" style={{ height: "80vh", width: "auto", margin: "0px 90px" }} />
         </a>
         <div id="buySection">
           <ResponsiveWrapper flex={2}
-            id="texturedCard" style={{ padding: 24, width: "62%", minWidth: "420px" }}>
+            id="texturedCard" style={{ padding: 14, width: "62%", minWidth: "420px" }}>
 
             <s.Container
               flex={2}
@@ -530,32 +533,54 @@ function App() {
       <s.Container
         flex={1}
         ai={"center"}
-        style={{ padding: "50px 25px", backgroundColor: "transparent", display: "flex", flexDirection: "row", justifyContent: "center", alignContent: "center", alignItems: "center", flexWrap: "wrap", }}
-        image={CONFIG.SHOW_BACKGROUND ? "https://rdbcarclub.com/wp-content/uploads/2021/11/new1-1.png" : null}
+        style={{ padding: "150px 25px 75px 25px", backgroundColor: "transparent", display: "flex", flexDirection: "row", justifyContent: "center", alignContent: "center", alignItems: "center", flexWrap: "wrap", }}
       >
-        <img id="tokeArea" src={tokeArea}>
+        <img id="tokeArea" style={{ width: "80vw", maxWidth: "1060px" }} src={tokeArea}>
         </img>
-
-        <Collapse accordion>
-          <Panel header="Who is LittyUp?" key="1">
-            <p>test</p>
-          </Panel>
-          <Panel header="Why LittyUp and MonsterBuds?" key="2">
-            <p>test</p>
-          </Panel>
-          <Panel header="What's the utility?" key="3">
-            <p>test</p>
-          </Panel>
-          <Panel header="What's the supply?" key="4">
-            <p>test</p>
-          </Panel>
-          <Panel header="Whats Snoop got to do with it?" key="5">
-            <p>test</p>
-          </Panel>
-        </Collapse>
-
       </s.Container>
 
+
+      <s.Container
+        flex={1}
+        ai={"center"}
+        id="heroBackground"
+        style={{ padding: "50px 25px", backgroundColor: "#9451BA", display: "flex", flexDirection: "column", justifyContent: "center", alignContent: "center", alignItems: "center", flexWrap: "wrap", }}
+      >
+        <s.TextTitle
+                style={{
+                  display: "block",
+                  textAlign: "center",
+                  fontSize: 88,
+                  fontWeight: "bold",
+                  fontFamily: "Fira Sans",
+                  color: "#FEF6D2",
+                }}
+              >FAQs</s.TextTitle>
+        <Collapse style={{ width: "70vw", margin: "45px" }} accordion>
+        <Panel header="Who is LittyUp?" key="1">
+          <p style={{ fontSize: "20px", color: "white" }}>
+            At MonsterBuds, we're always thinking of ways to provide utility within the NFT space. What LittyUp is building is incredible and we just had to hop on with them.
+
+            Our brands are colliding for the first time, while bringing Snoop Dogg along for the ride!</p>
+        </Panel>
+        <Panel header="Why LittyUp and MonsterBuds?" key="2">
+        <p style={{ fontSize: "20px", color: "white" }}>Each of these NFT's will give you access to LittyUp presented cannabis farmers markets across multiple states, to include but not limited to: Oklahoma, Michigan, California, Florida. 
+
+These are not your regular farmers markets. The CannaLit farmers markets are 4/20 friendly, going state to state with markets that include brands from all over the United states. 
+
+Shop, smoke, and be entertained by networking, music, games and foods. </p>
+        </Panel>
+        <Panel header="What's the utility?" key="3">
+        <p style={{ fontSize: "20px", color: "white" }}>Only 420 will ever exist. There are 2 1/1's, 165 concentrate cards, 140 edible cards and 113 flower cards. Minting a 1/1 from the collection will allow you to redeem an all-inclusive trip to see Snoop Dog live.
+
+Flight, hotel, and tickets to the show are included. (Max value $1500) </p>
+        </Panel>
+        <Panel style={{borderRadius: "10px"}} header="Whats Snoop got to do with it?" key="5">
+        <p style={{ fontSize: "20px", color: "white" }}>Snoop has partnered with Litty Up and MonsterBuds to build positive interactions between all of our fans, across many aspects: IRL, online, gaming, music.</p>
+        </Panel>
+      </Collapse>
+      </s.Container>
+      
     </s.Screen>
   );
 }

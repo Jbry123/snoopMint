@@ -169,6 +169,53 @@ html {
   display: none !important;
 }
 
+.ant-collapse {
+  background: transparent;
+  border: none;
+}
+
+.ant-collapse-item {
+  transition: all .4s;
+  transform: rotate3d(1, 1, 1, 0deg);
+  background: #5D3B94;
+  border: none;
+  box-shadow: inset 0px 0px 0 1px #000, 0px 0px 0 4px #000;
+  margin: 15px;
+  border-radius: 10px;
+  font-size: 50px;
+  padding: 10px;
+}
+
+#heroBackground {
+  background-size: 25%;
+  background-position: top;
+  background-color: #5d3a94;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 40' width='80' height='40'%3E%3Cpath fill='%23b4d41f' fill-opacity='0.22' d='M0 40a19.96 19.96 0 0 1 5.9-14.11 20.17 20.17 0 0 1 19.44-5.2A20 20 0 0 1 20.2 40H0zM65.32.75A20.02 20.02 0 0 1 40.8 25.26 20.02 20.02 0 0 1 65.32.76zM.07 0h20.1l-.08.07A20.02 20.02 0 0 1 .75 5.25 20.08 20.08 0 0 1 .07 0zm1.94 40h2.53l4.26-4.24v-9.78A17.96 17.96 0 0 0 2 40zm5.38 0h9.8a17.98 17.98 0 0 0 6.67-16.42L7.4 40zm3.43-15.42v9.17l11.62-11.59c-3.97-.5-8.08.3-11.62 2.42zm32.86-.78A18 18 0 0 0 63.85 3.63L43.68 23.8zm7.2-19.17v9.15L62.43 2.22c-3.96-.5-8.05.3-11.57 2.4zm-3.49 2.72c-4.1 4.1-5.81 9.69-5.13 15.03l6.61-6.6V6.02c-.51.41-1 .85-1.48 1.33zM17.18 0H7.42L3.64 3.78A18 18 0 0 0 17.18 0zM2.08 0c-.01.8.04 1.58.14 2.37L4.59 0H2.07z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+.ant-collapse-item-active {
+  margin: 40px 30px;
+  transform: rotate3d(1, 18, 1, 1deg);
+  background: #EB5A48 !important;
+  box-shadow: inset 0px 0px 0 2px #fe984c, 0px 0px 0 8px #5d3b94;
+  border: none !important;
+  border-bottom: none !important;
+}
+
+.ant-collapse-header {
+  font-family: "Fira Sans";
+color: white !important;
+}
+
+.ant-collapse > .ant-collapse-item {
+  border-bottom: none;
+}
+ .ant-collapse-content-box , .ant-collapse-content{
+  background: transparent !important;
+  border-top: none;
+}
+
+
 div {
   -moz-user-select: none;
   -webkit-user-select: none;
@@ -212,7 +259,8 @@ div {
     margin: 0 !important;
   }
   #headerRight a button {
-    margin: 0 !important;
+    margin: 0 0 0 0 !important;
+    width: 100% !important;
   }
   #tokeArea {
     width: 95vw !important;
