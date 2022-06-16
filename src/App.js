@@ -305,15 +305,17 @@ function App() {
             <a href="https://dreamr.gitbook.io/welcome-to-dreamr/technology/dreamstarter-nft-launchpad"><button
 
               style={{
+                fontWeight: "600",
                 width: "15vw",
                 height: "40px",
-                fontSize: "17px",
+                fontSize: "19px",
                 border: "none",
                 padding: "5px",
                 color: "#f2f2f2",
                 background: "transparent",
                 marginRight: "5px",
                 cursor: "pointer",
+                textShadow: "0 0 6px black",
               }}
             >
               Market Place
@@ -324,15 +326,17 @@ function App() {
             <a href="https://quickswap.exchange/#/swap?inputCurrency=0x955ce23f20217a6aa205620b40ede4c9e83d325f"><button
 
               style={{
+                fontWeight: "600",
                 width: "15vw",
                 height: "40px",
                 border: "none",
-                fontSize: "17px",
+                fontSize: "19px",
                 padding: "5px",
                 color: "#f2f2f2",
                 background: "transparent",
                 marginRight: "25px",
                 cursor: "pointer",
+                textShadow: "0 0 6px black",
               }}
             >
               WTF ARE BUDS?
@@ -341,15 +345,17 @@ function App() {
             <a href="https://quickswap.exchange/#/swap?inputCurrency=0x955ce23f20217a6aa205620b40ede4c9e83d325f"><button
 
               style={{
+                fontWeight: "600",
                 width: "15vw",
                 height: "40px",
                 border: "none",
-                fontSize: "17px",
+                fontSize: "19px",
                 padding: "5px",
                 color: "#f2f2f2",
                 background: "transparent",
                 marginRight: "5px",
                 cursor: "pointer",
+                textShadow: "0 0 6px black",
               }}
             >
               Get Started
@@ -535,7 +541,7 @@ function App() {
         ai={"center"}
         style={{ padding: "150px 25px 75px 25px", backgroundColor: "transparent", display: "flex", flexDirection: "row", justifyContent: "center", alignContent: "center", alignItems: "center", flexWrap: "wrap", }}
       >
-        <img id="tokeArea" style={{ width: "80vw", maxWidth: "1060px" }} src={tokeArea}>
+        <img id="tokeArea" style={{ width: "78vw", maxWidth: "1460px" }} src={tokeArea}>
         </img>
       </s.Container>
 
