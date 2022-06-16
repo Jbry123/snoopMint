@@ -362,7 +362,7 @@ function App() {
             </button></a>
             {blockchain.account === "" ||
               blockchain.smartContract === null ? (
-              <div style={{ width: "29vw" }}>
+              <div style={{ width: "29vw", display: "flex", justifyContent: "flex-end"  }}>
                 <StyledButton
                   style={{}}
                   onClick={(e) => {
@@ -373,8 +373,10 @@ function App() {
                 >
                   CONNECT WALLET
                 </StyledButton>
-              </div>
-            ) : (<h1 style={{ background: "#fff", padding: "10px", borderRadius: "9px" }}>{truncate(blockchain.account, 10)}</h1>)}
+              </div>  
+            ) : (<div style={{ width: "29vw", display: "flex", justifyContent: "flex-end"  }}>
+                          <h1 style={{ background: "#fff", padding: "10px", borderRadius: "9px",}}>{truncate(blockchain.account, 10)}</h1></div>)}
+            
           </div>
         </div>
 
