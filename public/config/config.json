@@ -2,9 +2,9 @@
   "CONTRACT_ADDRESS": "0x20bcde673cc3e77d843d100ea14e3760f64e1e11",
   "SCAN_LINK": "https://etherscan.io/address/0x20bcde673cc3e77d843d100ea14e3760f64e1e11",
   "NETWORK": {
-    "NAME": "Ethereum",
-    "SYMBOL": "ETH",
-    "ID": 1
+    "NAME": "Polygon",
+    "SYMBOL": "MATIC",
+    "ID": 137
   },
   "NFT_NAME": "MONSTERBUDS X LITTY UP",
   "SYMBOL": "MBLU",

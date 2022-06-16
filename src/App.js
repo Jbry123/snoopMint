@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
-import {ReactComponent as SnoopIllustration} from './snoopIllustration.svg';
+import { ReactComponent as SnoopIllustration } from './snoopIllustration.svg';
+import { Collapse } from 'antd';
 import { useDispatch, useSelector } from "react-redux";
 import { connect } from "./redux/blockchain/blockchainActions";
 import { fetchData } from "./redux/data/dataActions";
@@ -11,84 +12,87 @@ import mbWhite from "./mbWhite.png";
 import texturedCard from "./texturedCard.png";
 import buttonBG from "./buttonBG.png";
 import tokeArea from "./tokeArea.png";
+import CollapsePanel from "antd/lib/collapse/CollapsePanel";
+
+const { Panel } = Collapse;
 
 const truncate = (input, len) =>
   input.length > len ? `${input.substring(0, len)}...` : input;
 
-  const styles = {
-    headerText: {
-      fontSize: "40px",
-      fontFamily: "Roboto !important",
-      fontWeight: "700",
-      color: "#f2f2f2",
-      height: "95px",
-      width: "100%",
-      padding: "0px 30px"
-    },
-  
-    headerText2: {
-      marginTop: "75px",
-      fontSize: "40px",
-      fontFamily: "Roboto !important",
-      fontWeight: "500",
-      color: "#f2f2f2",
-      height: "95px",
-      width: "100%",
-      padding: "0px 30px",
-      textAlign: "center"
-    },
-  
-    tabs: {
-      fontSize: "38px",
-      fontFamily: "Roboto !important",
-      fontWeight: "500",
-      color: "#f2f2f2",
-      height: "auto",
-      width: "100%",
-      padding: "0px 30px"
-    },
-  
-    pText: {
-  
-      fontFamily: "Roboto !important",
-      fontSize: "15.5px",
-      color: "#b1b1b1",
-      height: "160px",
-      width: "100%",
-      padding: "0px 30px",
-      overflow: "overlay"
-    },
-  
-    content: {
-      display: "flex",
-      justifyContent: "center",
-      fontFamily: "Roboto, sans-serif",
-      color: "#041836",
-      padding: "10px",
-    },
-    header: {
-      position: "relative",
-      zIndex: 1,
-      height: "175px",
-      width: "100%",
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "center",
-      fontFamily: "Roboto, sans-serif",
-      padding: "0 50px",
-      background: "transparent",
-    },
-    headerRight: {
-      display: "flex",
-      gap: "20px",
-      alignItems: "center",
-      fontSize: "15px",
-      fontWeight: "600",
-    },
-  
-  
-  
-  };
+const styles = {
+  headerText: {
+    fontSize: "40px",
+    fontFamily: "Roboto !important",
+    fontWeight: "700",
+    color: "#f2f2f2",
+    height: "95px",
+    width: "100%",
+    padding: "0px 30px"
+  },
+
+  headerText2: {
+    marginTop: "75px",
+    fontSize: "40px",
+    fontFamily: "Roboto !important",
+    fontWeight: "500",
+    color: "#f2f2f2",
+    height: "95px",
+    width: "100%",
+    padding: "0px 30px",
+    textAlign: "center"
+  },
+
+  tabs: {
+    fontSize: "38px",
+    fontFamily: "Roboto !important",
+    fontWeight: "500",
+    color: "#f2f2f2",
+    height: "auto",
+    width: "100%",
+    padding: "0px 30px"
+  },
+
+  pText: {
+
+    fontFamily: "Roboto !important",
+    fontSize: "15.5px",
+    color: "#b1b1b1",
+    height: "160px",
+    width: "100%",
+    padding: "0px 30px",
+    overflow: "overlay"
+  },
+
+  content: {
+    display: "flex",
+    justifyContent: "center",
+    fontFamily: "Roboto, sans-serif",
+    color: "#041836",
+    padding: "10px",
+  },
+  header: {
+    position: "relative",
+    zIndex: 1,
+    height: "175px",
+    width: "100%",
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    fontFamily: "Roboto, sans-serif",
+    padding: "0 50px",
+    background: "transparent",
+  },
+  headerRight: {
+    display: "flex",
+    gap: "20px",
+    alignItems: "center",
+    fontSize: "15px",
+    fontWeight: "600",
+  },
+
+
+
+};
 
 export const StyledButton = styled.button`
   padding: 10px;
@@ -208,13 +212,13 @@ function App() {
     console.log("Gas limit: ", totalGasLimit);
     setFeedback(`Minting your ${CONFIG.NFT_NAME}...`);
     setClaimingNft(true);
-    
- 
+
+
     let signature = "S2Atx0qfYi32bleF";
     // signature = S2Atx0qfYi32bleF
     blockchain.smartContract.methods
-    //change params in mint to number of mints first, then the signature
-    .mint( mintAmount, signature)
+      //change params in mint to number of mints first, then the signature
+      .mint(mintAmount, signature)
       .send({
         gasLimit: String(totalGasLimit),
         to: CONFIG.CONTRACT_ADDRESS,
@@ -278,7 +282,7 @@ function App() {
   }, [blockchain.account]);
 
   return (
-    <s.Screen style={{background: backgroundmb, backgroundPosition: "top", overflowX: "clip"}}>
+    <s.Screen style={{ background: backgroundmb, backgroundPosition: "top", overflowX: "clip" }}>
       <s.Container
         flex={1}
         ai={"left"}
@@ -350,16 +354,18 @@ function App() {
             >
               Get Started
             </button></a>
-
+            {blockchain.account === "" ||
+                  blockchain.smartContract === null ? (
             <StyledButton
-                      onClick={(e) => {
-                        e.preventDefault();
-                        dispatch(connect());
-                        getData();
-                      }}
-                    >
-                      CONNECT WALLET
-                    </StyledButton>
+              onClick={(e) => {
+                e.preventDefault();
+                dispatch(connect());
+                getData();
+              }}
+            >
+              CONNECT WALLET
+            </StyledButton>
+                  ) : (<h1 style={{background: "#fff", padding: "10px", borderRadius: "9px"}}>{truncate(blockchain.account, 10)}</h1>)}
           </div>
         </div>
 
@@ -372,130 +378,130 @@ function App() {
       >
 
         <a href={CONFIG.MARKETPLACE_LINK}>
-          <SnoopIllustration id="snoopIllustration" style={{height: "77vh", width: "auto", margin: "0px 110px"}} />
+          <SnoopIllustration id="snoopIllustration" style={{ height: "77vh", width: "auto", margin: "0px 110px" }} />
         </a>
         <div id="buySection">
-        <ResponsiveWrapper flex={2}
+          <ResponsiveWrapper flex={2}
             id="texturedCard" style={{ padding: 24, width: "62%", minWidth: "420px" }}>
-       
-          <s.Container
-            flex={2}
-            jc={"center"}
-            ai={"center"}
-            style={{
-              width: "100%",
-            }}
-          >
-            <s.TextTitle
+
+            <s.Container
+              flex={2}
+              jc={"center"}
+              ai={"center"}
               style={{
-                textAlign: "center",
-                fontSize: 28,
-                fontWeight: "bold",
-                fontFamily: "Fira Sans",
-                color: "#5D3B94",
+                width: "100%",
               }}
             >
-              <b>MONSTERBUDS X LITTY UP </b>
-              <br />
-              <div style={{display: "flex", flexWrap: "nowrap", justifyContent: "space-around", alignItems: "center", alignContent: "center" }}>
+              <s.TextTitle
+                style={{
+                  textAlign: "center",
+                  fontSize: 28,
+                  fontWeight: "bold",
+                  fontFamily: "Fira Sans",
+                  color: "#5D3B94",
+                }}
+              >
+                <b>MONSTERBUDS X LITTY UP </b>
+                <br />
+                <div style={{ display: "flex", flexWrap: "nowrap", justifyContent: "space-around", alignItems: "center", alignContent: "center" }}>
 
-                <div style={{display: "flex", justifyContent: "center", flexDirection: "column"}}>
-                <h3 style={{fontSize: "28px",}}>Drop Size</h3>
-                <h1 style={{fontSize: "50px",}}>{CONFIG.MAX_SUPPLY}</h1>
-                </div>
-
-                <div style={{display: "flex", justifyContent: "center", flexDirection: "column"}}>
-                <h3 style={{fontSize: "28px",}}>Mint Price</h3>
-                <h1 style={{fontSize: "50px",}}>Ξ 0.064</h1>
-                </div>
-                
-              </div><p id="randomMintP" style={{fontSize: "18px", marginTop: "25px"}}>Random mint assignment.</p>
-            </s.TextTitle>
-            
-      
-            {Number(data.totalSupply) >= CONFIG.MAX_SUPPLY ? (
-              <>
-                <s.TextTitle
-                  style={{ textAlign: "center", color: "var(--accent-text)" }}
-                >
-                  The sale has ended.
-                </s.TextTitle>
-                <s.TextDescription
-                  style={{ textAlign: "center", color: "var(--accent-text)" }}
-                >
-                  You can still find {CONFIG.NFT_NAME} on
-                </s.TextDescription>
-                <s.SpacerSmall />
-                <StyledLink target={"_blank"} href={CONFIG.MARKETPLACE_LINK}>
-                  {CONFIG.MARKETPLACE}
-                </StyledLink>
-              </>
-            ) : (
-              <>
-                
-              </>
-            )}
-            
-          </s.Container>
-          
-        </ResponsiveWrapper>
-        
-        <>
-                    <s.TextDescription
-                      style={{
-                        textAlign: "center",
-                        color: "var(--accent-text)",
-                      }}
-                    >
-                      {feedback}
-                    </s.TextDescription>
-                    <s.SpacerMedium />
-                    <s.Container ai={"center"} jc={"center"} fd={"row"}>
-                      <StyledRoundButton
-                        style={{ lineHeight: 0.4 }}
-                        disabled={claimingNft ? 1 : 0}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          decrementMintAmount();
-                        }}
-                      >
-                        -
-                      </StyledRoundButton>
-                      <s.SpacerMedium />
-                      <s.TextDescription
-                        style={{
-                          textAlign: "center",
-                          color: "var(--accent-text)",
-                        }}
-                      >
-                        {mintAmount}
-                      </s.TextDescription>
-                      <s.SpacerMedium />
-                      <StyledRoundButton
-                        disabled={claimingNft ? 1 : 0}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          incrementMintAmount();
-                        }}
-                      >
-                        +
-                      </StyledRoundButton>
-                    </s.Container>
-                    <s.SpacerSmall />
-                    <s.Container ai={"center"} jc={"center"} fd={"row"}>
-                      <StyledButton id="buyButton"
-                        disabled={claimingNft ? 1 : 0}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          claimNFTs();
-                          getData();
-                        }}
-                      >
-                        {claimingNft ? "MINTING" : "BUY"}
-                      </StyledButton>
-                    </s.Container>
-                  </>
+                  <div style={{ display: "flex", justifyContent: "center", flexDirection: "column" }}>
+                    <h3 style={{ fontSize: "28px", }}>Drop Size</h3>
+                    <h1 style={{ fontSize: "50px", }}>{CONFIG.MAX_SUPPLY}</h1>
                   </div>
+
+                  <div style={{ display: "flex", justifyContent: "center", flexDirection: "column" }}>
+                    <h3 style={{ fontSize: "28px", }}>Mint Price</h3>
+                    <h1 style={{ fontSize: "50px", }}>Ξ 0.064</h1>
+                  </div>
+
+                </div><p id="randomMintP" style={{ fontSize: "18px", marginTop: "25px" }}>Random mint assignment.</p>
+              </s.TextTitle>
+
+
+              {Number(data.totalSupply) >= CONFIG.MAX_SUPPLY ? (
+                <>
+                  <s.TextTitle
+                    style={{ textAlign: "center", color: "var(--accent-text)" }}
+                  >
+                    The sale has ended.
+                  </s.TextTitle>
+                  <s.TextDescription
+                    style={{ textAlign: "center", color: "var(--accent-text)" }}
+                  >
+                    You can still find {CONFIG.NFT_NAME} on
+                  </s.TextDescription>
+                  <s.SpacerSmall />
+                  <StyledLink target={"_blank"} href={CONFIG.MARKETPLACE_LINK}>
+                    {CONFIG.MARKETPLACE}
+                  </StyledLink>
+                </>
+              ) : (
+                <>
+
+                </>
+              )}
+
+            </s.Container>
+
+          </ResponsiveWrapper>
+
+          <>
+            <s.TextDescription
+              style={{
+                textAlign: "center",
+                color: "var(--accent-text)",
+              }}
+            >
+              {feedback}
+            </s.TextDescription>
+            <s.SpacerMedium />
+            <s.Container ai={"center"} jc={"center"} fd={"row"}>
+              <StyledRoundButton
+                style={{ lineHeight: 0.4 }}
+                disabled={claimingNft ? 1 : 0}
+                onClick={(e) => {
+                  e.preventDefault();
+                  decrementMintAmount();
+                }}
+              >
+                -
+              </StyledRoundButton>
+              <s.SpacerMedium />
+              <s.TextDescription
+                style={{
+                  textAlign: "center",
+                  color: "var(--accent-text)",
+                }}
+              >
+                {mintAmount}
+              </s.TextDescription>
+              <s.SpacerMedium />
+              <StyledRoundButton
+                disabled={claimingNft ? 1 : 0}
+                onClick={(e) => {
+                  e.preventDefault();
+                  incrementMintAmount();
+                }}
+              >
+                +
+              </StyledRoundButton>
+            </s.Container>
+            <s.SpacerSmall />
+            <s.Container ai={"center"} jc={"center"} fd={"row"}>
+              <StyledButton id="buyButton"
+                disabled={claimingNft ? 1 : 0}
+                onClick={(e) => {
+                  e.preventDefault();
+                  claimNFTs();
+                  getData();
+                }}
+              >
+                {claimingNft ? "MINTING" : "BUY"}
+              </StyledButton>
+            </s.Container>
+          </>
+        </div>
         {/* <s.Container jc={"center"} ai={"center"} style={{ width: "70%" }}>
           <s.TextDescription
             style={{
@@ -529,6 +535,24 @@ function App() {
       >
         <img id="tokeArea" src={tokeArea}>
         </img>
+
+        <Collapse accordion>
+          <Panel header="Who is LittyUp?" key="1">
+            <p>test</p>
+          </Panel>
+          <Panel header="Why LittyUp and MonsterBuds?" key="2">
+            <p>test</p>
+          </Panel>
+          <Panel header="What's the utility?" key="3">
+            <p>test</p>
+          </Panel>
+          <Panel header="What's the supply?" key="4">
+            <p>test</p>
+          </Panel>
+          <Panel header="Whats Snoop got to do with it?" key="5">
+            <p>test</p>
+          </Panel>
+        </Collapse>
 
       </s.Container>
 
