@@ -187,6 +187,7 @@ html {
 }
 
 #heroBackground {
+  margin: "";
   background-size: 25%;
   background-position: top;
   background-color: #5d3a94;
