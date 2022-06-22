@@ -499,6 +499,7 @@ function App() {
               </StyledRoundButton>
               <s.SpacerMedium />
               <s.TextDescription
+              class="mintNumber"
                 style={{
                   textAlign: "center",
                   color: "var(--accent-text)",
