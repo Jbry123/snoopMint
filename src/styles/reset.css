@@ -215,6 +215,39 @@ color: white !important;
   border-top: none;
 }
 
+.cxzubI {
+  font-size: 36px !important;
+}
+
+#tokeArea2 {
+  box-shadow: 0px 2px 20px 20px #b5d41f, 0px -20px 20px 20px #b5d41f90;
+}
+
+.icons{
+  display: flex;
+  flex-direction: column;
+  padding-top: 1rem;
+}
+
+.icons a{
+  text-decoration: none;
+  font-size: 2rem;
+  margin: 0.5rem;
+  color: #f4f4f4;
+}
+
+.company-name{
+  font-size: 1.3rem;
+  margin-top: 0.5rem;
+}
+
+.hohBlo {
+  font-size: 40px !important;
+  background: #FCF6D6;
+  padding: 0px 50px 0px 50px;
+  border-radius: 12px;
+  color: #5D3B94 !important;
+}
 
 div {
   -moz-user-select: none;
@@ -226,7 +259,14 @@ div {
 
 #texturedCard {
   background-image: url(../texturedCard.png);
-  background-size: contain;
+  background-size: 98%;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+#texturedCard2 {
+  background-image: url(../texturedCard2.png);
+  background-size: 102%;
   background-repeat: no-repeat;
   background-position: top;
 }
