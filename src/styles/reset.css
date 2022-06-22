@@ -315,3 +315,19 @@ div {
     width: 95vw !important;
   }
 }
+@media only screen and (min-width: 1800px) {
+  #buySection {
+    margin: 5.5%;
+    transform: scale(1.3);
+  }
+}
+
+@media only screen and (min-width: 2400px) {
+  #headerRight a {
+    transform: scale(1.3);
+  }
+  #buySection {
+    margin: 9.5%;
+    transform: scale(1.5);
+  }
+}
