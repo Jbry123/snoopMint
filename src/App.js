@@ -504,11 +504,15 @@ function App() {
               </StyledRoundButton>
               <s.SpacerMedium />
               <s.TextDescription
-              class="mintNumber"
+              id="mintNumber"
                 style={{
                   textAlign: "center",
-                  color: "var(--accent-text)",
+                  color: "#5D3B94",
                   border: "solid 4px #5D3B94",
+                  fontSize: "40px",
+                  background: "#FCF6D6",
+                  padding: "10px 50px 10px 50px",
+                  borderRadius: "12px",
                 }}
               >
                 {mintAmount}
