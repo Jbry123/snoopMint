@@ -82,6 +82,7 @@ export const connect = () => {
           // Add listeners end
         } else {
           dispatch(connectFailed(`Change network to ${CONFIG.NETWORK.NAME}.`));
+          alert(`Change network to ${CONFIG.NETWORK.NAME} please! `);
         }
       } catch (err) {
         dispatch(connectFailed("Something went wrong."));
