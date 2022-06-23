@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { useSpring, animated } from 'react-spring'
+import { useSpring, animated, config, easings } from 'react-spring'
 import { ReactComponent as SnoopIllustration } from './snoopIllustration.svg';
 import { Collapse } from 'antd';
 import { useDispatch, useSelector } from "react-redux";
@@ -180,14 +180,19 @@ export const StyledLink = styled.a`
 
 function App() {
   const headerProps = useSpring({
+    config: { duration: 350 },
     to: { opacity: 1 },
     from: { opacity: 0 },
-    delay: 1400,
+    delay: 1000,
   });
   const heroProps = useSpring({
-    to: { marginLeft: "-1510px" },
-    from: { marginLeft: "0" },
-    delay: 1900,
+    config: {
+      duration: 1600,
+      easing: easings.easeInOutElastic,
+    },
+    to: { opacity: 1, marginLeft: "0" },
+    from: { opacity: 0, marginLeft: "-6510px" },
+    delay: 1350,
   });
   const dispatch = useDispatch();
   const blockchain = useSelector((state) => state.blockchain);
@@ -396,7 +401,7 @@ function App() {
 
       </s.Container>
       </animated.div>
-      {/* <animated.div style={heroProps}> */}
+      <animated.div style={heroProps}>
       <s.Container
         flex={1}
         ai={"center"}
@@ -559,7 +564,7 @@ function App() {
           </s.TextDescription>
         </s.Container> */}
       </s.Container>
-      {/* </animated.div> */}
+      </animated.div>
 
       <s.Container
         flex={1}
