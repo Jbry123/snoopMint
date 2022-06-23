@@ -405,7 +405,7 @@ function App() {
       <s.Container
         flex={1}
         ai={"center"}
-        style={{ padding: "0px 24px", backgroundColor: "transparent", display: "flex", flexDirection: "row", justifyContent: "center", alignContent: "center", alignItems: "center", flexWrap: "wrap", }}
+        style={{ padding: "0px 24px", backgroundColor: "transparent", display: "flex", flexDirection: "row", justifyContent: "space-evenly", alignContent: "center", alignItems: "center", flexWrap: "wrap", }}
         image={CONFIG.SHOW_BACKGROUND ? "https://rdbcarclub.com/wp-content/uploads/2021/11/new1-1.png" : null}
       >
 
@@ -513,6 +513,7 @@ function App() {
                   background: "#FCF6D6",
                   padding: "10px 50px 10px 50px",
                   borderRadius: "12px",
+                  
                 }}
               >
                 {mintAmount}
@@ -619,7 +620,7 @@ function App() {
         flex={1}
         ai={"center"}
         id="heroBackground"
-        style={{ padding: "75px 55px 135px 55px", backgroundColor: "#9451BA", display: "flex", flexDirection: "column", justifyContent: "center", alignContent: "center", alignItems: "center", flexWrap: "wrap", }}
+        style={{ padding: "125px 55px 135px 55px", backgroundColor: "#9451BA", display: "flex", flexDirection: "column", justifyContent: "center", alignContent: "center", alignItems: "center", flexWrap: "wrap", }}
       >
         <s.TextTitle
           style={{
