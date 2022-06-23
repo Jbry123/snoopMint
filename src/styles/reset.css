@@ -196,9 +196,9 @@ html {
 
 .mintNumber {
   font-size: 40px !important;
-  background: #FCF6D6;
-  padding: 10px 50px 10px 50px;
-  border-radius: 12px;
+  background: #FCF6D6 !important;
+  padding: 10px 50px 10px 50px !important;
+  border-radius: 12px !important;
   color: #5D3B94 !important;
 }
 
