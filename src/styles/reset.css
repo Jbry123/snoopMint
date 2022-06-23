@@ -316,6 +316,21 @@ div {
   }
 }
 @media only screen and (min-width: 1800px) {
+  #texturedCard2 {
+    width: 717px;
+    min-width: 431px;
+    max-width: 830px;
+    min-height: 705px;
+    margin: 0px 0px 70px;
+    padding: 50px;
+    background-size: contain;
+  }
+  #header a   {
+    transform: scale(1.2);
+  }
+  #headerRight a {
+    transform: scale(1.2);
+  }
   #buySection {
     margin: 5.5%;
     transform: scale(1.3);
@@ -323,6 +338,9 @@ div {
 }
 
 @media only screen and (min-width: 2400px) {
+  #header a   {
+    transform: scale(1.3);
+  }
   #headerRight a {
     transform: scale(1.3);
   }
