@@ -14,6 +14,9 @@ import buttonBG from "./buttonBG.png";
 import tokeArea from "./tokeArea.png";
 import snoopCooking from "./snoopCooking.png";
 import footerImg from "./footerImg.jpg";
+import flower from "./817.png";
+import concentrate from "./818.png";
+import edible from "./819.png";
 
 
 
@@ -572,14 +575,24 @@ function App() {
       </animated.div>
 
       <s.Container
+      id="tokeContainerBorder"
         flex={1}
         ai={"center"}
         style={{ padding: "150px 25px 75px 25px", backgroundColor: "transparent", display: "flex", flexDirection: "row", justifyContent: "center", alignContent: "center", alignItems: "center", flexWrap: "wrap", }}
       >
-        <img id="tokeArea" style={{ width: "78vw", maxWidth: "1460px" }} src={tokeArea}>
-        </img>
+          <div>
+          <img id="tokeArea3" style={{ width: "100%", maxWidth: "375px" }} src={flower} ></img>
+          </div>
+          <div>
+          <img id="tokeArea3" style={{ width: "100%", maxWidth: "375px" }} src={concentrate} ></img>
+          </div>
+          <div>
+          <img id="tokeArea3" style={{ width: "100%", maxWidth: "376.5px" }} src={edible} ></img>
+          </div>
+
+
       </s.Container>
-      <div style={{ display: "flex", justifyContent: "center" }}>
+      <div id="snoopCookContainer" style={{ display: "flex", justifyContent: "center" }}>
         <ResponsiveWrapper flex={1}
           id="texturedCard2" style={{ width: "687px", minWidth: "411px", maxWidth: "690px", minHeight: "705px", margin: "0px 0px 70px 0px", backgroundSize: "contain" }}>
 
@@ -613,7 +626,7 @@ function App() {
           </s.Container>
 
         </ResponsiveWrapper>
-        <img style={{ height: "619px", marginBottom: "70px", marginLeft: "-53px" }} src={snoopCooking}></img>
+        <img id="snoopCookingImg" style={{ height: "619px", marginBottom: "70px", marginLeft: "-53px" }} src={snoopCooking}></img>
       </div>
 
       <s.Container
@@ -652,7 +665,8 @@ function App() {
               Flight, hotel, and tickets to the show are included. (Max value $1500) </p>
           </Panel>
           <Panel style={{ borderRadius: "10px" }} header="Whats Snoop got to do with it?" key="5">
-            <p style={{ fontSize: "20px", color: "white" }}>Snoop has partnered with Litty Up and MonsterBuds to build positive interactions between all of our fans, across many aspects: IRL, online, gaming, music.</p>
+            <p style={{ fontSize: "20px", color: "white" }}>Snoop has partnered with Litty Up and MonsterBuds to build positive interactions between all of our fans, across many aspects: IRL, online, gaming, and 
+                music.</p>
           </Panel>
         </Collapse>
       </s.Container>

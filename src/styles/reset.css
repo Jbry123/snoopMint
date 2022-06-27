@@ -88,6 +88,7 @@ video {
   font: inherit;
   vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -102,18 +103,22 @@ nav,
 section {
   display: block;
 }
+
 body {
   overflow-x: clip;
   line-height: 1;
 }
+
 ol,
 ul {
   list-style: none;
 }
+
 blockquote,
 q {
   quotes: none;
 }
+
 blockquote:before,
 blockquote:after,
 q:before,
@@ -121,6 +126,7 @@ q:after {
   content: "";
   content: none;
 }
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -157,8 +163,10 @@ body::-webkit-scrollbar {
 }
 
 body {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 html {
@@ -214,13 +222,15 @@ html {
 
 .ant-collapse-header {
   font-family: "Fira Sans";
-color: white !important;
+  color: white !important;
 }
 
-.ant-collapse > .ant-collapse-item {
+.ant-collapse>.ant-collapse-item {
   border-bottom: none;
 }
- .ant-collapse-content-box , .ant-collapse-content{
+
+.ant-collapse-content-box,
+.ant-collapse-content {
   background: transparent !important;
   border-top: none;
 }
@@ -229,27 +239,28 @@ color: white !important;
   font-size: 36px !important;
 }
 
-#tokeArea2 {
+#tokeArea3 {
+  padding: 3%;
 }
 
-.ant-collapse{
+.ant-collapse {
   min-height: 825px;
 }
 
-.icons{
+.icons {
   display: flex;
   flex-direction: column;
   padding-top: 1rem;
 }
 
-.icons a{
+.icons a {
   text-decoration: none;
   font-size: 2rem;
   margin: 0.5rem;
   color: #f4f4f4;
 }
 
-.company-name{
+.company-name {
   font-size: 1.3rem;
   margin-top: 0.5rem;
 }
@@ -286,37 +297,157 @@ div {
 
 #buySection {
   display: grid;
-    justify-items: center;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
 }
 
+#tokeContainer {
+  flex-direction: row !important;
+}
+
+
+
+
+
+
+@media only screen and (max-width: 385px) {
+  #snoopIllustration {
+    margin-top: 155px !important;
+
+  }
+
+  #headerRight {
+    gap: 5px !important;
+  }
+}
+
+
+
 @media only screen and (max-width: 800px) {
-  #header, #headerRight {
+
+  #header,
+  #headerRight {
     flex-direction: column;
   }
-  #header{
+
+  #buySection {
+    margin-top: -13px;
+  }
+
+  #header {
     height: 375px !important;
     margin-bottom: 25px;
     justify-content: center !important;
   }
+
   #snoopIllustration {
     width: 100% !important;
     margin: 0 !important;
+    margin-top: 105px !important;
+
   }
+
   #texturedCard {
     min-width: 375px !important;
   }
-  #randomMintP {
-    margin: 0 !important;
+
+  #headerRight {
+    gap: 5px !important;
   }
-  #headerRight a button {
-    margin: 0 0 0 0 !important;
+
+  #texturedCard2 {
+    width: 95% !important;
+    min-width: 290px !important;
+    max-width: 690px !important;
+    min-height: 705px !important;
+    margin: 0px 0px 0px !important;
+    background-size: cover !important;
+  }
+}
+
+#tokeContainerBorder {
+  padding: 0 !important;
+}
+
+#tokeContainer {
+  flex-direction: column !important;
+  padding: 15% 5% 15% 5%;
+
+}
+
+#snoopCookingImg{
+  max-height: 287px;
+  margin-top: -70px !important;
+  margin-left: 0 !important;
+}
+
+#snoopCookContainer {
+  flex-direction: column;
+  align-items: center;
+}
+
+#randomMintP {
+  margin: 0 !important;
+}
+
+#headerRight a button {
+  margin: 0 0 0 0 !important;
+  width: 100% !important;
+}
+
+#tokeArea {
+  width: 95vw !important;
+}
+
+
+
+
+
+@media only screen and (min-width: 1200px) {
+  #texturedCard2 {
+    width: 717px;
+    min-width: 431px;
+    max-width: 830px;
+    min-height: 705px;
+    margin: 0px 0px 70px;
+    padding: 50px;
+    background-size: contain;
+  }
+  #snoopCookContainer {
+    display: flex;
+      justify-content: center;
+      flex-direction: row !important;
+  }
+  #snoopCookingImg{
+    height: 619px !important;
+    margin-bottom: 70px; 
+    margin-left: -53px !important;
+  }
+
+  #header a {
+    transform: scale(1.2);
+  }
+
+  #headerRight a {
+    transform: scale(1.2);
+  }
+
+  #buySection {
+    margin: 5.5%;
+    transform: scale(1.3);
+  }
+  #headerRight {
+    display: flex;
+    gap: 20px;
     width: 100% !important;
-  }
-  #tokeArea {
-    width: 95vw !important;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 600;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
   }
 }
 @media only screen and (min-width: 1800px) {
@@ -329,27 +460,73 @@ div {
     padding: 50px;
     background-size: contain;
   }
-  #header a   {
+
+  #snoopCookContainer {
+    display: flex;
+      justify-content: center;
+      flex-direction: row !important;
+  }
+
+  #header a {
     transform: scale(1.2);
   }
+
   #headerRight a {
     transform: scale(1.2);
   }
+
   #buySection {
     margin: 5.5%;
     transform: scale(1.3);
   }
+  #snoopCookingImg{
+    height: 619px !important;
+    margin-bottom: 70px; 
+    margin-left: -53px !important;
+  }
+
+  #headerRight {
+    display: flex;
+    gap: 20px;
+    width: 100% !important;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 600;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+  }
+
 }
 
+
 @media only screen and (min-width: 2400px) {
-  #header a   {
+  #header a {
     transform: scale(1.3);
   }
+
   #headerRight a {
     transform: scale(1.3);
   }
+
   #buySection {
     margin: 9.5%;
     transform: scale(1.5);
+  }
+  #snoopCookContainer {
+    display: flex;
+      justify-content: center;
+      flex-direction: row !important;
+  }
+  #headerRight {
+    display: flex;
+    gap: 20px;
+    width: 100% !important;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 600;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
   }
 }
