@@ -404,6 +404,14 @@ div {
     flex-direction: column;
     align-items: center;
   }
+
+  #tokeArea2 {
+    width: 100% !important;
+    margin-bottom: 0 !important;
+  }
+  .company-name{
+    text-align: center;
+  }
 }
 
 
