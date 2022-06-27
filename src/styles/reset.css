@@ -162,12 +162,7 @@ body::-webkit-scrollbar {
   display: none;
 }
 
-body {
-  -ms-overflow-style: none;
-  /* IE and Edge */
-  scrollbar-width: none;
-  /* Firefox */
-}
+
 
 html {
   background-color: "#4C4C4C";
@@ -307,7 +302,18 @@ div {
   flex-direction: row !important;
 }
 
+#randomMintP {
+  margin: 0 !important;
+}
 
+#headerRight a button {
+  margin: 0 0 0 0 !important;
+  width: 100% !important;
+}
+
+#tokeArea {
+  width: 95vw !important;
+}
 
 
 
@@ -327,13 +333,17 @@ div {
 
 @media only screen and (max-width: 800px) {
 
+
+
   #header,
   #headerRight {
     flex-direction: column;
+
   }
 
   #buySection {
     margin-top: -13px;
+
   }
 
   #header {
@@ -365,44 +375,36 @@ div {
     margin: 0px 0px 0px !important;
     background-size: cover !important;
   }
-}
 
-#tokeContainerBorder {
-  padding: 0 !important;
-}
+  #snoopCookingImg {
+    max-height: 287px;
+    margin-top: -70px !important;
+    margin-left: 0 !important;
 
-#tokeContainer {
-  flex-direction: column !important;
-  padding: 15% 5% 15% 5%;
+  }
 
-}
+  #tokeContainerBorder {
+    padding: 50px 5px !important;
+  }
 
-#snoopCookingImg{
-  max-height: 287px;
-  margin-top: -70px !important;
-  margin-left: 0 !important;
-}
+  #tokeContainer {
+    flex-direction: column !important;
+    padding: 15% 5% 15% 5%;
 
-#snoopCookContainer {
-  flex-direction: column;
-  align-items: center;
-}
+  }
 
-#randomMintP {
+  #heroBackground, #heroBackground .ant-collapse {
   margin: 0 !important;
-}
-
-#headerRight a button {
-  margin: 0 0 0 0 !important;
+  padding: 0 !important;
   width: 100% !important;
 }
 
-#tokeArea {
-  width: 95vw !important;
+
+  #snoopCookContainer {
+    flex-direction: column;
+    align-items: center;
+  }
 }
-
-
-
 
 
 @media only screen and (min-width: 1200px) {
@@ -415,29 +417,32 @@ div {
     padding: 50px;
     background-size: contain;
   }
+
   #snoopCookContainer {
     display: flex;
-      justify-content: center;
-      flex-direction: row !important;
+    justify-content: center;
+    flex-direction: row !important;
   }
-  #snoopCookingImg{
+
+  #snoopCookingImg {
     height: 619px !important;
-    margin-bottom: 70px; 
+    margin-bottom: 70px;
     margin-left: -53px !important;
   }
 
   #header a {
-    transform: scale(1.2);
+    transform: scale(1.1);
   }
 
   #headerRight a {
-    transform: scale(1.2);
+    transform: scale(1.1);
   }
 
   #buySection {
     margin: 5.5%;
     transform: scale(1.3);
   }
+
   #headerRight {
     display: flex;
     gap: 20px;
@@ -450,6 +455,7 @@ div {
     justify-content: space-around;
   }
 }
+
 @media only screen and (min-width: 1800px) {
   #texturedCard2 {
     width: 717px;
@@ -463,8 +469,8 @@ div {
 
   #snoopCookContainer {
     display: flex;
-      justify-content: center;
-      flex-direction: row !important;
+    justify-content: center;
+    flex-direction: row !important;
   }
 
   #header a {
@@ -479,9 +485,10 @@ div {
     margin: 5.5%;
     transform: scale(1.3);
   }
-  #snoopCookingImg{
+
+  #snoopCookingImg {
     height: 619px !important;
-    margin-bottom: 70px; 
+    margin-bottom: 70px;
     margin-left: -53px !important;
   }
 
@@ -513,11 +520,13 @@ div {
     margin: 9.5%;
     transform: scale(1.5);
   }
+
   #snoopCookContainer {
     display: flex;
-      justify-content: center;
-      flex-direction: row !important;
+    justify-content: center;
+    flex-direction: row !important;
   }
+
   #headerRight {
     display: flex;
     gap: 20px;
