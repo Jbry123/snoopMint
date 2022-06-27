@@ -337,7 +337,7 @@ function App() {
                 textShadow: "0 0 4px black",
               }}
             >
-              Market Place
+              Marketplace
             </button></a>
 
 
@@ -358,7 +358,7 @@ function App() {
                 textShadow: "0 0 4px black",
               }}
             >
-              WTF ARE BUDS?
+              WTF Are Buds?
             </button></a>
 
             <a href="https://quickswap.exchange/#/swap?inputCurrency=0x955ce23f20217a6aa205620b40ede4c9e83d325f"><button
@@ -394,7 +394,7 @@ function App() {
                 </StyledButton>
               </div>
             ) : (<div style={{ width: "29vw", display: "flex", justifyContent: "flex-end" }}>
-              <h1 style={{ background: "#fff", padding: "10px", borderRadius: "9px", }}>{truncate(blockchain.account, 10)}</h1></div>)}
+              <h1 style={{ background: "rgb(252, 246, 214)", padding: "10px", border: "4px solid rgb(93, 59, 148)", borderRadius: "9px", }}>{truncate(blockchain.account, 10)}</h1></div>)}
 
           </div>
         </div>

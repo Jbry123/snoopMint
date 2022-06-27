@@ -172,6 +172,7 @@ html {
 .ant-collapse {
   background: transparent;
   border: none;
+  max-width: 1600px;
 }
 
 .ant-collapse-item {
@@ -229,7 +230,6 @@ color: white !important;
 }
 
 #tokeArea2 {
-  box-shadow: 0px 2px 20px 20px #b5d41f, 0px -20px 20px 20px #b5d41f90;
 }
 
 .ant-collapse{
