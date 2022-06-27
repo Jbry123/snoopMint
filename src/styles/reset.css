@@ -109,6 +109,10 @@ body {
   line-height: 1;
 }
 
+#root {
+  overflow-x: clip;
+}
+
 ol,
 ul {
   list-style: none;
@@ -378,7 +382,7 @@ div {
 
   #snoopCookingImg {
     max-height: 287px;
-    margin-top: -70px !important;
+    margin-top: -50px !important;
     margin-left: 0 !important;
 
   }
