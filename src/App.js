@@ -612,11 +612,11 @@ function App() {
                 fontWeight: "bold",
                 fontFamily: "Fira Sans",
                 color: "#5D3B94",
-                padding: 25,
+                padding: 0,
 
               }}
             >
-              <b style={{ textAlign: "center", marginTop: "15px !important" }}>GET LITTY WITH SNOOP DOGG </b>
+              <b id="getLitty" style={{ textAlign: "center", marginTop: "15px !important" }}>GET LITTY WITH SNOOP DOGG </b>
               <br />
               <p id="randomMintP" style={{ fontSize: "24px", marginTop: "50px", lineHeight: "1.3", textAlign: "justify", margin: "50px 20px 0px 20px" }}>MonsterBuds and LittyUp are colliding to bring unique cannabis experiences around the United States. Each NFT gives you special access to LittyUp-presented cannabis farmers markets to shop, smoke, network, and experience canna-friendly music, games, and food. Mint a 1/1 from this collection and redeem an all-inclusive trip to see Snoop Dogg live!</p>
             </s.TextTitle>
