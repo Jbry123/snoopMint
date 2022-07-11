@@ -14,6 +14,7 @@ import buttonBG from "./buttonBG.png";
 import tokeArea from "./tokeArea.png";
 import snoopCooking from "./snoopCooking.png";
 import footerImg from "./footerImg.jpg";
+import footerImgMobile from "./footerImgMobile.jpg";
 import flower from "./817.png";
 import concentrate from "./818.png";
 import edible from "./819.png";
@@ -204,21 +205,21 @@ function App() {
   const [feedback, setFeedback] = useState(``);
   const [mintAmount, setMintAmount] = useState(1);
   const [CONFIG, SET_CONFIG] = useState({
-    CONTRACT_ADDRESS: "0x20bcde673cc3e77d843d100ea14e3760f64e1e11",
-    SCAN_LINK: "https://etherscan.io/address/0x20bcde673cc3e77d843d100ea14e3760f64e1e11",
+    CONTRACT_ADDRESS: "0xdD361AD9960260Bf940aA89ec4505F12F4c5EdDA",
+    SCAN_LINK: "https://ropsten.etherscan.io/address/0xdD361AD9960260Bf940aA89ec4505F12F4c5EdDA",
     NETWORK: {
-      NAME: "Ethereum",
-      SYMBOL: "ETH",
-      ID: 1,
+      NAME: "Ropsten",
+      SYMBOL: "rETH",
+      ID: 3,
     },
     NFT_NAME: "MonsterBuds X Litty Up",
-    SYMBOL: "MBLU",
+    SYMBOL: "MBxLU",
     MAX_SUPPLY: 420,
-    WEI_COST: 150000000000000000,
-    DISPLAY_COST: 0.15,
-    GAS_LIMIT: 120000,
+    WEI_COST: 64000000000000000,
+    DISPLAY_COST: 0.064,
+    GAS_LIMIT: 220000,
     MARKETPLACE: "opensea",
-    MARKETPLACE_LINK: "https://opensea.io/collection/rdb-official",
+    MARKETPLACE_LINK: "https://opensea.io/collection/mb-official",
     SHOW_BACKGROUND: false,
   });
 
@@ -239,7 +240,7 @@ function App() {
     // signature = S2Atx0qfYi32bleF
     blockchain.smartContract.methods
       //change params in mint to number of mints first, then the signature
-      .mint(mintAmount, signature)
+      .mint(blockchain.account, mintAmount)
       .send({
         gasLimit: String(totalGasLimit),
         to: CONFIG.CONTRACT_ADDRESS,
@@ -456,20 +457,12 @@ function App() {
 
               {Number(data.totalSupply) >= CONFIG.MAX_SUPPLY ? (
                 <>
-                  <s.TextTitle
-                    style={{ textAlign: "center", color: "var(--accent-text)" }}
-                  >
-                    The sale has ended.
-                  </s.TextTitle>
                   <s.TextDescription
-                    style={{ textAlign: "center", color: "var(--accent-text)" }}
+                    style={{ textAlign: "center", color: "var(--accent-text)", marginTop: "50px" }}
                   >
-                    You can still find {CONFIG.NFT_NAME} on
+                    You can still find {CONFIG.NFT_NAME} on <a href={CONFIG.MARKETPLACE_LINK}>Opensea</a>
+
                   </s.TextDescription>
-                  <s.SpacerSmall />
-                  <StyledLink target={"_blank"} href={CONFIG.MARKETPLACE_LINK}>
-                    {CONFIG.MARKETPLACE}
-                  </StyledLink>
                 </>
               ) : (
                 <>
@@ -485,10 +478,12 @@ function App() {
           <>
             <s.TextDescription
               style={{
+                fontSize: "1em !important",
                 textAlign: "center",
                 color: "var(--accent-text)",
                 background: "transparent",
-                border: "solid 1px black !important"
+                border: "solid 1px black !important",
+                marginTop: "25px"
               }}
             >
               {feedback}
@@ -616,8 +611,8 @@ function App() {
 
               }}
             >
-              <b id="getLitty" style={{ textAlign: "center", marginTop: "15px !important" }}>GET LITTY WITH SNOOP DOGG </b>
-              <br />
+              <h4 id="getLitty" style={{ textAlign: "center", marginTop: "15px !important" }}>GET LITTY WITH SNOOP DOGG </h4>
+
               <p id="randomMintP" style={{ fontSize: "24px", marginTop: "50px", lineHeight: "1.3", textAlign: "justify", margin: "50px 20px 0px 20px" }}>MonsterBuds and LittyUp are colliding to bring unique cannabis experiences around the United States. Each NFT gives you special access to LittyUp-presented cannabis farmers markets to shop, smoke, network, and experience canna-friendly music, games, and food. Mint a 1/1 from this collection and redeem an all-inclusive trip to see Snoop Dogg live!</p>
             </s.TextTitle>
 
@@ -671,7 +666,9 @@ function App() {
         </Collapse>
       </s.Container>
 
-      <img id="tokeArea2" style={{ width: "102.3%", marginBottom: "-5px" }} src={footerImg}>
+      <img id="tokeArea2Mobile" style={{ width: "100%", marginBottom: "-5px" }} src={footerImgMobile}>
+      </img>
+      <img id="tokeArea2" style={{ width: "100.3%", marginBottom: "-15px !important" }} src={footerImg}>
       </img>
 
       <s.Container

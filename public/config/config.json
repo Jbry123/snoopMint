@@ -1,18 +1,18 @@
 {
-  "CONTRACT_ADDRESS": "0x20bcde673cc3e77d843d100ea14e3760f64e1e11",
-  "SCAN_LINK": "https://etherscan.io/address/0x20bcde673cc3e77d843d100ea14e3760f64e1e11",
+  "CONTRACT_ADDRESS": "0xdD361AD9960260Bf940aA89ec4505F12F4c5EdDA",
+  "SCAN_LINK": "https://etherscan.io/address/0xdD361AD9960260Bf940aA89ec4505F12F4c5EdDA",
   "NETWORK": {
-    "NAME": "Polygon",
-    "SYMBOL": "MATIC",
-    "ID": 137
+    "NAME": "Ropsten",
+    "SYMBOL": "rETH",
+    "ID": 3
   },
   "NFT_NAME": "MONSTERBUDS X LITTY UP",
-  "SYMBOL": "MBLU",
+  "SYMBOL": "MBxLU",
   "MAX_SUPPLY": 420,
-  "WEI_COST": 150000000000000000,
-  "DISPLAY_COST": 0.15,
-  "GAS_LIMIT": 120000,
+  "WEI_COST": 64000000000000000,
+  "DISPLAY_COST": 0.064,
+  "GAS_LIMIT": 220000,
   "MARKETPLACE": "Opensea",
-  "MARKETPLACE_LINK": "https://opensea.io/collection/rdb-official",
+  "MARKETPLACE_LINK": "https://opensea.io/collection/mb-official",
   "SHOW_BACKGROUND": false
 }
