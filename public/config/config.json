@@ -1,10 +1,10 @@
 {
-  "CONTRACT_ADDRESS": "0xdD361AD9960260Bf940aA89ec4505F12F4c5EdDA",
-  "SCAN_LINK": "https://etherscan.io/address/0xdD361AD9960260Bf940aA89ec4505F12F4c5EdDA",
+  "CONTRACT_ADDRESS": "0x8C3089293C9C307C8F2702db4fEA7b92AA898aa3",
+  "SCAN_LINK": "https://etherscan.io/address/0x8C3089293C9C307C8F2702db4fEA7b92AA898aa3",
   "NETWORK": {
-    "NAME": "Ropsten",
-    "SYMBOL": "rETH",
-    "ID": 3
+    "NAME": "Rinkeby",
+    "SYMBOL": "ETH",
+    "ID": 4
   },
   "NFT_NAME": "MONSTERBUDS X LITTY UP",
   "SYMBOL": "MBxLU",

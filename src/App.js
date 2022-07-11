@@ -205,12 +205,12 @@ function App() {
   const [feedback, setFeedback] = useState(``);
   const [mintAmount, setMintAmount] = useState(1);
   const [CONFIG, SET_CONFIG] = useState({
-    CONTRACT_ADDRESS: "0xdD361AD9960260Bf940aA89ec4505F12F4c5EdDA",
-    SCAN_LINK: "https://ropsten.etherscan.io/address/0xdD361AD9960260Bf940aA89ec4505F12F4c5EdDA",
+    CONTRACT_ADDRESS: "0x8C3089293C9C307C8F2702db4fEA7b92AA898aa3",
+    SCAN_LINK: "https://rinkeby.etherscan.io/address/0x8C3089293C9C307C8F2702db4fEA7b92AA898aa3",
     NETWORK: {
-      NAME: "Ropsten",
-      SYMBOL: "rETH",
-      ID: 3,
+      NAME: "Rinkeby",
+      SYMBOL: "ETH",
+      ID: 4,
     },
     NFT_NAME: "MonsterBuds X Litty Up",
     SYMBOL: "MBxLU",
@@ -240,7 +240,7 @@ function App() {
     // signature = S2Atx0qfYi32bleF
     blockchain.smartContract.methods
       //change params in mint to number of mints first, then the signature
-      .mint(blockchain.account, mintAmount)
+      .safeMint(blockchain.account, mintAmount)
       .send({
         gasLimit: String(totalGasLimit),
         to: CONFIG.CONTRACT_ADDRESS,
