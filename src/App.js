@@ -1,3 +1,4 @@
+import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui";
 import React, { useEffect, useState, useRef } from "react";
 import { useSpring, animated, config, easings } from 'react-spring'
 import { ReactComponent as SnoopIllustration } from './snoopIllustration.svg';
@@ -531,7 +532,7 @@ function App() {
               </StyledRoundButton>
             </s.Container>
             <s.SpacerSmall />
-            <s.Container ai={"center"} jc={"center"} fd={"row"}>
+            <s.Container ai={"center"} jc={"center"} fd={"column"}>
               <StyledButton id="buyButton"
                 disabled={claimingNft ? 1 : 0}
                 onClick={(e) => {
@@ -549,6 +550,14 @@ function App() {
               >
                 {claimingNft ? "MINTING" : "BUY"}
               </StyledButton>
+
+              <CrossmintPayButton style={{marginTop: "20px"}}
+                collectionTitle="MonsterBuds x LittyUp"
+                collectionDescription="Snoop has partnered with LittyUp and MonsterBuds to build positive interactions between all of our fans and across many aspects including IRL, online, gaming, and music."
+                collectionPhoto="https://gateway.pinata.cloud/ipfs/QmepxrN2HsYmQz6RqtSyPDoy2fFpA9CVBkR44aTpeRNMo4/snoop_higher_conciousness.png"
+                clientId="a012ba57-a72d-4497-86ef-85efd51a5b6e"
+                mintConfig={{"type":"erc-721","totalPrice":JSON.stringify(mintAmount * 0.065),"quantity":mintAmount}}
+            />
             </s.Container>
           </>
         </div>
