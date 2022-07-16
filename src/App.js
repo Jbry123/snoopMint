@@ -452,7 +452,7 @@ function App() {
                     <h1 style={{ fontSize: "50px", color: "#5D3B94",}}>Ξ 0.065</h1>
                   </div>
 
-                </div><p id="randomMintP" style={{ fontSize: "18px", marginTop: "25px", textAlign: "left" }}>Random mint assignment.</p>
+                </div><p id="randomMintP1" style={{ fontSize: "18px", textAlign: "center" }}>Random mint assignment.</p>
               </s.TextTitle>
 
 
@@ -533,8 +533,8 @@ function App() {
             </s.Container>
             <s.SpacerSmall />
             <s.Container ai={"center"} jc={"center"} fd={"column"}>
-              <StyledButton id="buyButton"
-                disabled={claimingNft ? 1 : 0}
+              <StyledButton disabled id="buyButton"
+                // disabled={claimingNft ? 1 : 0}
                 onClick={(e) => {
                   if (!blockchain.account) {
                     e.preventDefault();
@@ -551,7 +551,7 @@ function App() {
                 {claimingNft ? "MINTING" : "BUY"}
               </StyledButton>
 
-              <CrossmintPayButton style={{marginTop: "20px"}}
+              <CrossmintPayButton disabled style={{marginTop: "20px"}}
                 collectionTitle="MonsterBuds x LittyUp"
                 collectionDescription="Snoop has partnered with LittyUp and MonsterBuds to build positive interactions between all of our fans and across many aspects including IRL, online, gaming, and music."
                 collectionPhoto="https://gateway.pinata.cloud/ipfs/QmepxrN2HsYmQz6RqtSyPDoy2fFpA9CVBkR44aTpeRNMo4/snoop_higher_conciousness.png"
@@ -629,7 +629,7 @@ function App() {
 
               }}
             >
-              <h4 id="getLitty" style={{ textAlign: "center", margin: "25px 5px" }}>GET LITTY WITH SNOOP DOGG </h4>
+              <h4 id="getLitty" style={{ textAlign: "center", margin: "25px 5px", color: "rgb(93, 59, 148)" }}>GET LITTY WITH SNOOP DOGG </h4>
 
               <p id="randomMintP" style={{ fontSize: "24px", marginTop: "50px", lineHeight: "1.3", textAlign: "justify", margin: "50px 20px 0px 20px" }}>MonsterBuds and LittyUp are colliding to bring unique cannabis experiences around the United States. Each NFT gives you special access to LittyUp-presented cannabis farmers markets to shop, smoke, network, and experience canna-friendly music, games, and food. Mint a 1/1 from this collection and redeem an all-inclusive trip to see Snoop Dogg live!</p>
             </s.TextTitle>
@@ -662,7 +662,7 @@ function App() {
           <Panel header="Who is LittyUp?" key="1">
             <p style={{ fontSize: "20px", color: "white" }}>
               At MonsterBuds, we're always thinking of ways to provide utility within the NFT space. What LittyUp is building is incredible and we just had to hop on with them.
-
+<br /><br />
               Our brands are colliding for the first time, while bringing Snoop Dogg along for the ride!</p>
           </Panel>
           <Panel header="Why LittyUp and MonsterBuds?" key="2">
@@ -695,11 +695,11 @@ function App() {
        <footer class="footer">
         <div class="icons">
           <div style={{display: "flex", justifyContent: "center"}}>
-           <a href="#" style={{color: "#000", background: "#f2f2f2", width: "56px", height: "56px", display: "flex", justifyContent: "center", alignItems: "center", borderRadius: "50px"}}><i class="fab fa-discord" ></i></a>
-           <a href="#" style={{color: "#000", background: "#f2f2f2", width: "56px", height: "56px", display: "flex", justifyContent: "center", alignItems: "center", borderRadius: "50px"}}><i class="fab fa-instagram"></i></a>
-           <a href="#" style={{color: "#000", background: "#f2f2f2", width: "56px", height: "56px", display: "flex", justifyContent: "center", alignItems: "center", borderRadius: "50px"}}><i class="fab fa-twitter"></i></a>
+           <a href="https://discord.com/invite/tTx79RYQC7" style={{color: "#000", background: "#f2f2f2", width: "56px", height: "56px", display: "flex", justifyContent: "center", alignItems: "center", borderRadius: "50px"}}><i class="fab fa-discord" ></i></a>
+           <a href="https://www.instagram.com/monsterbudsnft/" style={{color: "#000", background: "#f2f2f2", width: "56px", height: "56px", display: "flex", justifyContent: "center", alignItems: "center", borderRadius: "50px"}}><i class="fab fa-instagram"></i></a>
+           <a href="https://twitter.com/MonsterBudsNFT" style={{color: "#000", background: "#f2f2f2", width: "56px", height: "56px", display: "flex", justifyContent: "center", alignItems: "center", borderRadius: "50px"}}><i class="fab fa-twitter"></i></a>
            </div>
-            <p class="company-name">
+            <p class="company-name" style={{color: "#b4d41f"}}>
             © Monsterbuds | All Rights Reserved 2022
             </p>
         </div>

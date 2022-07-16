@@ -242,7 +242,7 @@ html {
 #tokeArea2 {
   background: linear-gradient(0deg, #09514b 12%, #b4d41f 50%);
   margin-bottom: -10px !important;
-  box-shadow: 0px -16px 11px 3px #b4d41f;
+  box-shadow: -2px -16px 11px 3px #b4d41f;
 }
 #tokeArea3 {
   padding: 3%;
