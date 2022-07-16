@@ -239,7 +239,11 @@ html {
 .cxzubI {
   font-size: 36px !important;
 }
-
+#tokeArea2 {
+  background: linear-gradient(0deg, #09514b 12%, #b4d41f 50%);
+  margin-bottom: -10px !important;
+  box-shadow: 0px -16px 11px 3px #b4d41f;
+}
 #tokeArea3 {
   padding: 3%;
 }
@@ -271,7 +275,8 @@ html {
   background: #FCF6D6;
   padding: 0px 50px 0px 50px;
   border-radius: 12px;
-  color: #5D3B94 !important;
+  color: #fff !important;
+  
 }
 
 div {
@@ -284,7 +289,7 @@ div {
 
 #texturedCard {
   background-image: url(../texturedCard.png);
-  background-size: 98%;
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: top;
 }
@@ -309,6 +314,7 @@ div {
 }
 
 #randomMintP {
+  text-align: left !important;
   margin: 0 !important;
 }
 
@@ -321,7 +327,11 @@ div {
   width: 95vw !important;
 }
 
-
+@media only screen and (max-width: 400px) {
+  #randomMintP {
+    font-size: 12px !important;
+  }
+}
 
 
 @media only screen and (max-width: 600px) {
@@ -331,7 +341,7 @@ line-height: 1 !important;
   }
 
   #tokeArea2Mobile {
-    display: block;
+    display: block !important;
   }
 
   #tokeArea2{
@@ -360,8 +370,9 @@ line-height: 1 !important;
 
   #randomMintP {
     margin: 0 !important;
-    font-size: 16px !important;
+    font-size: 15px !important;
   }
+  
 
   #header,
   #headerRight {
@@ -386,6 +397,10 @@ line-height: 1 !important;
     margin-top: 175px !important;
     margin-bottom: 20px !important;
 
+  }
+
+  #getLitty {
+    margin: 10px 5px !important;
   }
 
   #texturedCard {

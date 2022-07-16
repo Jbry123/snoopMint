@@ -13,7 +13,7 @@ import mbWhite from "./mbWhite.png";
 import buttonBG from "./buttonBG.png";
 import tokeArea from "./tokeArea.png";
 import snoopCooking from "./snoopCooking.png";
-import footerImg from "./footerImg.jpg";
+import footerImg from "./footerImg.png";
 import footerImgMobile from "./footerImgMobile.jpg";
 import flower from "./817.png";
 import concentrate from "./818.png";
@@ -205,19 +205,19 @@ function App() {
   const [feedback, setFeedback] = useState(``);
   const [mintAmount, setMintAmount] = useState(1);
   const [CONFIG, SET_CONFIG] = useState({
-    CONTRACT_ADDRESS: "0x8C3089293C9C307C8F2702db4fEA7b92AA898aa3",
-    SCAN_LINK: "https://rinkeby.etherscan.io/address/0x8C3089293C9C307C8F2702db4fEA7b92AA898aa3",
+    CONTRACT_ADDRESS: "0xbFBb02aCBdEB597C70c380f3ddCD36447FF69828",
+    SCAN_LINK: "https://rinkeby.etherscan.io/address/0xbFBb02aCBdEB597C70c380f3ddCD36447FF69828",
     NETWORK: {
-      NAME: "Rinkeby",
+      NAME: "Ethereum",
       SYMBOL: "ETH",
-      ID: 4,
+      ID: 1,
     },
     NFT_NAME: "MonsterBuds X Litty Up",
     SYMBOL: "MBxLU",
-    MAX_SUPPLY: 420,
-    WEI_COST: 64000000000000000,
-    DISPLAY_COST: 0.064,
-    GAS_LIMIT: 220000,
+    MAX_SUPPLY: 1000,
+    WEI_COST: 65000000000000000,
+    DISPLAY_COST: 0.065,
+    GAS_LIMIT: 35000,
     MARKETPLACE: "opensea",
     MARKETPLACE_LINK: "https://opensea.io/collection/mb-official",
     SHOW_BACKGROUND: false,
@@ -236,7 +236,7 @@ function App() {
     setClaimingNft(true);
 
 
-    let signature = "S2Atx0qfYi32bleF";
+    let signature = "snoop123";
     // signature = S2Atx0qfYi32bleF
     blockchain.smartContract.methods
       //change params in mint to number of mints first, then the signature
@@ -325,7 +325,7 @@ function App() {
           <div id="headerRight" style={styles.headerRight}>
 
 
-            <a href="https://dreamr.gitbook.io/welcome-to-dreamr/technology/dreamstarter-nft-launchpad"><button
+            <a href="https://monsterbuds.io/marketplace"><button
 
               style={{
                 fontWeight: "600",
@@ -346,7 +346,7 @@ function App() {
 
 
 
-            <a href="https://quickswap.exchange/#/swap?inputCurrency=0x955ce23f20217a6aa205620b40ede4c9e83d325f"><button
+            <a href="https://monsterbuds.io/about"><button
 
               style={{
                 fontWeight: "600",
@@ -365,7 +365,7 @@ function App() {
               WTF Are Buds?
             </button></a>
 
-            <a href="https://quickswap.exchange/#/swap?inputCurrency=0x955ce23f20217a6aa205620b40ede4c9e83d325f"><button
+            <a href="https://monsterbuds.io/"><button
 
               style={{
                 fontWeight: "600",
@@ -448,10 +448,10 @@ function App() {
 
                   <div style={{ display: "flex", justifyContent: "center", flexDirection: "column" }}>
                     <h3 style={{ fontSize: "28px", color: "#5D3B94", fontWeight: "400" }}>Mint Price</h3>
-                    <h1 style={{ fontSize: "50px", color: "#5D3B94",}}>Ξ 0.064</h1>
+                    <h1 style={{ fontSize: "50px", color: "#5D3B94",}}>Ξ 0.065</h1>
                   </div>
 
-                </div><p id="randomMintP" style={{ fontSize: "18px", marginTop: "25px" }}>Random mint assignment.</p>
+                </div><p id="randomMintP" style={{ fontSize: "18px", marginTop: "25px", textAlign: "left" }}>Random mint assignment.</p>
               </s.TextTitle>
 
 
@@ -478,12 +478,14 @@ function App() {
           <>
             <s.TextDescription
               style={{
+                fontWeight: "500",
                 fontSize: "1em !important",
                 textAlign: "center",
-                color: "var(--accent-text)",
+                color: "#fff !important",
                 background: "transparent",
                 border: "solid 1px black !important",
-                marginTop: "25px"
+                marginTop: "25px",
+                textShadow: "1px 1px 10px #000"
               }}
             >
               {feedback}
@@ -533,6 +535,13 @@ function App() {
               <StyledButton id="buyButton"
                 disabled={claimingNft ? 1 : 0}
                 onClick={(e) => {
+                  if (!blockchain.account) {
+                    e.preventDefault();
+                    dispatch(connect());
+                    getData();
+                    alert("You were not signed in with your wallet, so we thought we'd help you out with that; please try again!")
+                    return;
+                  }
                   e.preventDefault();
                   claimNFTs();
                   getData();
@@ -611,7 +620,7 @@ function App() {
 
               }}
             >
-              <h4 id="getLitty" style={{ textAlign: "center", marginTop: "15px !important" }}>GET LITTY WITH SNOOP DOGG </h4>
+              <h4 id="getLitty" style={{ textAlign: "center", margin: "25px 5px" }}>GET LITTY WITH SNOOP DOGG </h4>
 
               <p id="randomMintP" style={{ fontSize: "24px", marginTop: "50px", lineHeight: "1.3", textAlign: "justify", margin: "50px 20px 0px 20px" }}>MonsterBuds and LittyUp are colliding to bring unique cannabis experiences around the United States. Each NFT gives you special access to LittyUp-presented cannabis farmers markets to shop, smoke, network, and experience canna-friendly music, games, and food. Mint a 1/1 from this collection and redeem an all-inclusive trip to see Snoop Dogg live!</p>
             </s.TextTitle>
@@ -655,9 +664,7 @@ function App() {
               Shop, smoke, and be entertained by networking, music, games and foods. </p>
           </Panel>
           <Panel header="What's the utility?" key="3">
-            <p style={{ fontSize: "20px", color: "white" }}>Only 420 will ever exist. There are 2 1/1's, 165 concentrate cards, 140 edible cards and 113 flower cards. Minting a 1/1 from the collection will allow you to redeem an all-inclusive trip to see Snoop Dog live.
-
-              Flight, hotel, and tickets to the show are included. (Max value $1500) </p>
+            <p style={{ fontSize: "20px", color: "white" }}>Only 1000 will ever exist. There are 2 1/1's, 318 concentrate cards, 260 edible cards and 420 flower cards. Minting a 1/1 from the collection will allow you to redeem an <i>all-inclusive trip to see Snoop Dog live.</i> Flight, hotel, and tickets to the show are included. (Max value $1500) </p>
           </Panel>
           <Panel style={{ borderRadius: "10px" }} header="Whats Snoop got to do with it?" key="5">
             <p style={{ fontSize: "20px", color: "white" }}>Snoop has partnered with Litty Up and MonsterBuds to build positive interactions between all of our fans, across many aspects: IRL, online, gaming, and 
