@@ -219,7 +219,7 @@ function App() {
     MAX_SUPPLY: 1000,
     WEI_COST: 65000000000000000,
     DISPLAY_COST: 0.065,
-    GAS_LIMIT: 35000,
+    GAS_LIMIT: 100000,
     MARKETPLACE: "opensea",
     MARKETPLACE_LINK: "https://opensea.io/collection/mb-official",
     SHOW_BACKGROUND: false,
@@ -415,7 +415,7 @@ function App() {
         image={CONFIG.SHOW_BACKGROUND ? "https://rdbcarclub.com/wp-content/uploads/2021/11/new1-1.png" : null}
       >
 
-        <a href={CONFIG.MARKETPLACE_LINK}>
+        <a>
           <SnoopIllustration id="snoopIllustration" style={{ height: "80vh", width: "auto", margin: "0px 90px 0px 50px" }} />
         </a>
         <div id="buySection">
