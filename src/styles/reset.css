@@ -176,6 +176,13 @@ html {
   display: none !important;
 }
 
+.footer {
+  background-image: url("../footerBG.png");
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .ant-collapse {
   background: transparent;
   border: none;
@@ -240,9 +247,7 @@ html {
   font-size: 36px !important;
 }
 #tokeArea2 {
-  background: linear-gradient(0deg, #09514b 12%, #b4d41f 50%);
-  margin-bottom: -10px !important;
-  box-shadow: -2px -16px 11px 3px #b4d41f;
+
 }
 #tokeArea3 {
   padding: 3%;
@@ -255,7 +260,6 @@ html {
 .icons {
   display: flex;
   flex-direction: column;
-  padding-top: 1rem;
 }
 
 .icons a {
@@ -266,7 +270,7 @@ html {
 }
 
 .company-name {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   margin-top: 0.5rem;
 }
 
@@ -340,6 +344,17 @@ font-size: 20px !important;
 line-height: 1 !important;
   }
 
+  #footerContainer {
+    padding: 85px 2%;
+    margin-top: -75px;
+
+  }
+
+  #mbPot {
+    left: 0% !important;
+    width: 130px !important;
+  }
+
   #tokeArea2Mobile {
     display: block !important;
   }
@@ -366,6 +381,17 @@ line-height: 1 !important;
   }
   #tokeArea2Mobile {
     display: none;
+  }
+
+  #footerContainer {
+    padding: 85px 2%;
+    margin-top: -75px;
+
+  }
+
+  #mbPot {
+    left: 0% !important;
+    width: 200px;
   }
 
   #randomMintP {

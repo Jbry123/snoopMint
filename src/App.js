@@ -14,11 +14,12 @@ import mbWhite from "./mbWhite.png";
 import buttonBG from "./buttonBG.png";
 import tokeArea from "./tokeArea.png";
 import snoopCooking from "./snoopCooking.png";
-import footerImg from "./footerImg.png";
-import footerImgMobile from "./footerImgMobile.jpg";
+import footerImg from "./footerBG.png";
+import footerImgMobile from "./footerBG.png";
 import flower from "./817.png";
 import concentrate from "./818.png";
 import edible from "./819.png";
+import MBpot from "./mbPot.gif";
 
 
 
@@ -682,24 +683,27 @@ function App() {
         </Collapse>
       </s.Container>
 
-      <img id="tokeArea2Mobile" style={{ width: "100%", marginBottom: "-5px" }} src={footerImgMobile}>
-      </img>
-      <img id="tokeArea2" style={{ width: "100.3%", marginBottom: "-15px !important" }} src={footerImg}>
-      </img>
 
       <s.Container
         flex={1}
+        id="footerContainer"
         ai={"center"}
-        style={{ padding: "50px 25px", backgroundColor: "#09514B", display: "flex", flexDirection: "column", justifyContent: "center", alignContent: "center", alignItems: "center", flexWrap: "wrap", }}
+        style={{ backgroundColor: "#09514B00", display: "flex", flexDirection: "column", justifyContent: "center", alignContent: "center", alignItems: "center", flexWrap: "wrap", marginTop: "-75px", width: "100.4%" }}
       >
        <footer class="footer">
-        <div class="icons">
+        <div style={{display: "flex", justifyContent: "center", height: "150px", alignItems: "center"}}>
+          <img id="mbPot" style={{ width: "200px", height: "auto", position: "absolute", left: "7.5%" }} src={MBpot}>
+          </img>
+          <img style={{ width: "146px", height: "auto" }} src={mbWhite}>
+          </img>
+        </div>
+        <div class="icons" style={{height: "200px"}}>
           <div style={{display: "flex", justifyContent: "center"}}>
-           <a href="https://discord.com/invite/tTx79RYQC7" style={{color: "#000", background: "#f2f2f2", width: "56px", height: "56px", display: "flex", justifyContent: "center", alignItems: "center", borderRadius: "50px"}}><i class="fab fa-discord" ></i></a>
-           <a href="https://www.instagram.com/monsterbudsnft/" style={{color: "#000", background: "#f2f2f2", width: "56px", height: "56px", display: "flex", justifyContent: "center", alignItems: "center", borderRadius: "50px"}}><i class="fab fa-instagram"></i></a>
-           <a href="https://twitter.com/MonsterBudsNFT" style={{color: "#000", background: "#f2f2f2", width: "56px", height: "56px", display: "flex", justifyContent: "center", alignItems: "center", borderRadius: "50px"}}><i class="fab fa-twitter"></i></a>
+           <a href="https://discord.com/invite/tTx79RYQC7" style={{color: "#000", background: "#EB5A48", width: "46px", height: "46px", display: "flex", justifyContent: "center", alignItems: "center", borderRadius: "100%"}}><i class="fab fa-discord" ></i></a>
+           <a href="https://www.instagram.com/monsterbudsnft/" style={{color: "#000", background: "#EB5A48", width: "46px", height: "46px", display: "flex", justifyContent: "center", alignItems: "center", borderRadius: "100%"}}><i class="fab fa-instagram"></i></a>
+           <a href="https://twitter.com/MonsterBudsNFT" style={{color: "#000", background: "#EB5A48", width: "46px", height: "46px", display: "flex", justifyContent: "center", alignItems: "center", borderRadius: "100%"}}><i class="fab fa-twitter"></i></a>
            </div>
-            <p class="company-name" style={{color: "#b4d41f"}}>
+            <p class="company-name" style={{color: "#FEF6D2", textAlign: "center"}}>
             © Monsterbuds | All Rights Reserved 2022
             </p>
         </div>
