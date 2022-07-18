@@ -344,11 +344,6 @@ font-size: 20px !important;
 line-height: 1 !important;
   }
 
-  #footerContainer {
-    padding: 85px 2%;
-    margin-top: -75px;
-
-  }
 
   #mbPot {
     left: 0% !important;
@@ -383,11 +378,6 @@ line-height: 1 !important;
     display: none;
   }
 
-  #footerContainer {
-    padding: 85px 2%;
-    margin-top: -75px;
-
-  }
 
   #mbPot {
     left: 0% !important;
@@ -426,7 +416,7 @@ line-height: 1 !important;
   }
 
   #getLitty {
-    margin: 10px 5px !important;
+    margin:10px 5px !important;
   }
 
   #texturedCard {
@@ -448,7 +438,6 @@ line-height: 1 !important;
 }
   #getLitty{
     font-size: 45px;
-    margin-bottom: 25px !important;
   }
 
   #snoopCookingImg {
