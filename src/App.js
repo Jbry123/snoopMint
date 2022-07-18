@@ -533,8 +533,8 @@ function App() {
             </s.Container>
             <s.SpacerSmall />
             <s.Container ai={"center"} jc={"center"} fd={"column"}>
-              <StyledButton disabled id="buyButton"
-                // disabled={claimingNft ? 1 : 0}
+              <StyledButton id="buyButton"
+                disabled={claimingNft ? 1 : 0}
                 onClick={(e) => {
                   if (!blockchain.account) {
                     e.preventDefault();
@@ -551,7 +551,7 @@ function App() {
                 {claimingNft ? "MINTING" : "BUY"}
               </StyledButton>
 
-              <CrossmintPayButton disabled style={{marginTop: "20px"}}
+              <CrossmintPayButton style={{marginTop: "20px"}}
                 collectionTitle="MonsterBuds x LittyUp"
                 collectionDescription="Snoop has partnered with LittyUp and MonsterBuds to build positive interactions between all of our fans and across many aspects including IRL, online, gaming, and music."
                 collectionPhoto="https://gateway.pinata.cloud/ipfs/QmepxrN2HsYmQz6RqtSyPDoy2fFpA9CVBkR44aTpeRNMo4/snoop_higher_conciousness.png"
