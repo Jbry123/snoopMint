@@ -6,13 +6,13 @@
     "SYMBOL": "ETH",
     "ID": 1
   },
-  "NFT_NAME": "MONSTERBUDS X LITTY UP",
+  "NFT_NAME": "MONSTERBUDS X LITTYUP",
   "SYMBOL": "MBxLU",
   "MAX_SUPPLY": 1000,
   "WEI_COST": 65000000000000000,
   "DISPLAY_COST": 0.065,
   "GAS_LIMIT": 100000,
   "MARKETPLACE": "Opensea",
-  "MARKETPLACE_LINK": "https://opensea.io/collection/mb-official",
+  "MARKETPLACE_LINK": "https://opensea.io/",
   "SHOW_BACKGROUND": false
 }

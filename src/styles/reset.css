@@ -419,6 +419,10 @@ line-height: 1 !important;
     margin:10px 5px !important;
   }
 
+  #text {
+    width: 90%;
+  }
+
   #texturedCard {
     min-width: 375px !important;
   }

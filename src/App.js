@@ -214,14 +214,14 @@ function App() {
       SYMBOL: "ETH",
       ID: 1,
     },
-    NFT_NAME: "MonsterBuds X Litty Up",
+    NFT_NAME: "MonsterBuds X LittyUp",
     SYMBOL: "MBxLU",
     MAX_SUPPLY: 1000,
     WEI_COST: 65000000000000000,
     DISPLAY_COST: 0.065,
     GAS_LIMIT: 100000,
     MARKETPLACE: "opensea",
-    MARKETPLACE_LINK: "https://opensea.io/collection/mb-official",
+    MARKETPLACE_LINK: "https://opensea.io/" + blockchain.account,
     SHOW_BACKGROUND: false,
   });
 
@@ -251,13 +251,13 @@ function App() {
       })
       .once("error", (err) => {
         console.log(err);
-        setFeedback("Sorry bud, stuff went wrong! Maybe a rejected transaction or a contract error, try again please!");
+        setFeedback("Sorry bud, stuff went wrong! Maybe a rejected transaction or a contract error, turn up the gas to aggressive try again please!");
         setClaimingNft(false);
       })
       .then((receipt) => {
         console.log(receipt);
-        setFeedback(
-          `WOW, the ${CONFIG.NFT_NAME} is yours! go visit Opensea.io to view it.`
+        ssetFeedback(
+          `Woah Man, the ${CONFIG.NFT_NAME} NFT is yours! You can find your NFT at ${CONFIG.MARKETPLACE_LINK + blockchain.account} to view it.`
         );
         setClaimingNft(false);
         dispatch(fetchData(blockchain.account));
@@ -321,7 +321,7 @@ function App() {
         }}
       >
         <div id="header" style={styles.header}>
-          <a href="https://app.dreamstarter.co"><img style={{ margin: "15px 25px", width: "135px", height: "auto" }} src={mbWhite}>
+          <a href="https://monsterbuds.io"><img style={{ margin: "15px 25px", width: "135px", height: "auto" }} src={mbWhite}>
           </img></a>
 
           <div id="headerRight" style={styles.headerRight}>
@@ -412,10 +412,10 @@ function App() {
         flex={1}
         ai={"center"}
         style={{ padding: "0px 24px", backgroundColor: "transparent", display: "flex", flexDirection: "row", justifyContent: "space-evenly", alignContent: "center", alignItems: "center", flexWrap: "wrap", }}
-        image={CONFIG.SHOW_BACKGROUND ? "https://rdbcarclub.com/wp-content/uploads/2021/11/new1-1.png" : null}
+        image={CONFIG.SHOW_BACKGROUND ? "" : null}
       >
 
-        <a>
+        <a href={CONFIG.MARKETPLACE_LINK + blockchain.account} >
           <SnoopIllustration id="snoopIllustration" style={{ height: "80vh", width: "auto", margin: "0px 90px 0px 50px" }} />
         </a>
         <div id="buySection">
@@ -462,7 +462,7 @@ function App() {
                   <s.TextDescription
                     style={{ textAlign: "center", color: "var(--accent-text)", marginTop: "50px" }}
                   >
-                    You can still find {CONFIG.NFT_NAME} on <a href={CONFIG.MARKETPLACE_LINK}>Opensea</a>
+                    You can find your {CONFIG.NFT_NAME} NFT on <a style={{textDecoration: "underline"}} href={CONFIG.MARKETPLACE_LINK + blockchain.account}> Your Opensea Profile</a>
 
                   </s.TextDescription>
                 </>
